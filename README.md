@@ -1,8 +1,9 @@
 Magazine
 ===========================
 
-Best free responsive Joomla template for blog and news website - Joomla! 2.5 and 3.x compatible
--------------------------
+Best free responsive Joomla template for blog and news website -------------------------
+
+Joomla! 2.5 and 3.x compatible
 
 _Template DEMO: [VIEW DEMO](http://demo.gavick.com/joomla25/magazine/)_
 
