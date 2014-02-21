@@ -1,10 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
 
 body {
-  padding:50px;
-  font:14px/1.5 "Raleway", Helvetica, Arial, sans-serif;
-  color:#777;
-  font-weight:300;
+color: #777;
+line-height: 1.75;
+font-weight: 300;
+font-size: 16px;
+font-family: 'Raleway', sans-serif;
+-webkit-font-smoothing: subpixel-antialiased!important;
+margin: 0;
+padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,17 +19,189 @@ h1, h2, h3, h4, h5, h6 {
 p, ul, ol, table, pre, dl {
   margin:0 0 20px;
 }
-
+footer p {
+  margin: 25px 0 0 0;
+  width: 50%;
+  float: left;
+  text-align: right;
+  color: #878A8F;
+}
+footer {
+  background: #2E3033;
+  height: 80px;
+  font-size: 14px;
+}
+footer a {color: #fff}
+footer p:first-child {
+  text-align: left;
+}
 h1, h2, h3 {
   line-height:1.1;
 }
-
-h1 {
-  font-size:28px;
+div.innerWrapper {
+  max-width: 1540px;
+  margin: 0 auto;
 }
-
+.toolbar {
+  background: #1F2123;
+  height: 85px;
+  min-height: 85px;
+  margin: 0;
+  clear: both;
+  position: fixed;
+  top:0;
+  width: 100%;
+}
+.features-block-both h3, .features-block-right h3, .features-block-right p, .features-block-right dl {
+float: left;
+width: 44%;
+}
+.features-block-both h3, .features-block-left h3, .features-block-right h3, .features-block-center h3 {
+color: #2E3033;
+font-size: 42px;
+font-weight: 300;
+line-height: 1;
+margin: 0 0 54px 0;
+}
+#logo {
+  background: url('../images/logo.png') no-repeat 0 5px;
+  display: block;
+  float: left;
+  height: 85px;
+  text-indent: -9999em;
+  width: 129px;
+}
+.btn, .btn.buy:active, .btn.buy:focus, .btn.buy:hover {
+  background: #2E3033;
+  color: #FFF;
+}
+.btn, .btn-double {
+  background: #2E3033;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #FFF;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  height: 65px;
+  line-height: 65px;
+  margin: 0 0 0 20px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  min-width: 220px;
+  border: none;
+  -webkit-transition: all .3s ease-out;
+-moz-transition: all .3s ease-out;
+-ms-transition: all .3s ease-out;
+-o-transition: all .3s ease-out;
+transition: all .3s ease-out;
+width: auto;
+}
+h1 {
+  float: left;
+  text-align: left;
+  width: 50%;
+  font-size: 42px;
+  line-height: 1;
+  margin: 0;
+  font-weight: 300;
+}
+.btn.buy, .btn-double, .btn:active, .btn:focus, .btn:hover, .download-wp {
+background: #549AEA;
+color: #FFF;
+}
+.btn, .btn-double {
+background: #2E3033;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-ms-box-sizing: border-box;
+box-sizing: border-box;
+color: #FFF;
+display: inline-block;
+font-size: 15px;
+font-weight: 500;
+height: 65px;
+line-height: 65px;
+margin: 0 0 0 20px;
+overflow: hidden;
+position: relative;
+text-align: center;
+text-transform: uppercase;
+min-width: 220px;
+}
+.btn-double>span {
+left: 0;
+position: absolute;
+text-align: center;
+top: 0;
+-webkit-transition: all .15s ease-out;
+-moz-transition: all .15s ease-out;
+-ms-transition: all .15s ease-out;
+-o-transition: all .15s ease-out;
+transition: all .15s ease-out;
+width: 100%;
+z-index: 0;
+}
+.btn-double>a.first-child {
+background: #71B1F8;
+left: -110px;
+}
+.btn-double>a {
+background: #549AEA;
+color: #FFF;
+font-size: 14px;
+height: 65px;
+right: -110px;
+line-height: 65px;
+margin: 0;
+padding: 0!important;
+position: absolute;
+top: 0;
+-webkit-transition: all .2s ease-out;
+-moz-transition: all .2s ease-out;
+-ms-transition: all .2s ease-out;
+-o-transition: all .2s ease-out;
+transition: all .2s ease-out;
+width: 110px;
+z-index: 1;
+}
+.btn-double>a {
+  min-width: 50%!important;
+  max-width: 50%!important;
+}
+.btn.buy, .btn-double, .btn:active, .btn:focus, .btn:hover, .download-wp {
+  background: #549AEA;
+  color: #FFF;
+}
+.btn-double:hover>span {
+  color: #549AEA;
+  top: 24px;
+}
+.btn-double:hover>a.first-child {
+left: 0;
+}
+.btn-double:hover>a {
+right: 0;
+}
+.header-image {
+background: #F6F7F9;
+display: block;
+padding: 90px 0 0 0;
+}
 h2 {
-  color:#393939;
+  color: #999;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 10px 0 0 0;
+  text-transform: none;
+  width: 53%;
+  text-align: left;
+  float: left;
+  font-weight: 300;
 }
 
 h3, h4, h5, h6 {
@@ -46,7 +222,7 @@ a small {
 }
 
 .wrapper {
-  width:860px;
+  width:100%;
   margin:0 auto;
 }
 
@@ -98,6 +274,9 @@ img {
 header {
   width:100%;
   position:fixed;
+  top: 85px;
+  background: #fff;
+  padding: 30px 0;
 }
 
 header ul {
@@ -157,10 +336,26 @@ header ul a strong {
   display:block;
   color:#222;
 }
-
+.header-image > img {
+display: block;
+line-height: 1;
+margin: 0 auto;
+max-width: 90%;
+}
+.download-block {
+border-bottom: 1px solid #E5E5E5;
+margin: 0 0 60px 0;
+overflow: hidden;
+padding: 65px 0;
+text-align: left;
+}
+.features-block-both, .features-block-left, .features-block-right, .features-block-center {
+padding: 100px 0;
+}
 section {
   width:100%
-
+  clear: both;
+  margin-top: 225px;
   padding-bottom:50px;
 }
 
@@ -180,29 +375,27 @@ footer {
   bottom:50px;
 }
 
+@media print, screen and (max-width: 1100px) {
+ .viewgh {
+    display: none;
+  }
+}
+
 @media print, screen and (max-width: 960px) {
   
   div.wrapper {
     width:auto;
     margin:0;
   }
-  
+  .viewgh {
+    display: none;
+  }
   header, section, footer {
-    float:none;
-    position:static;
+
     width:auto;
   }
   
-  header {
-    padding-right:320px;
-  }
-  
-  section {
-    border:1px solid #e5e5e5;
-    border-width:1px 0;
-    padding:20px 0;
-    margin:0 0 20px;
-  }
+
   
   header a small {
     display:inline;
@@ -219,9 +412,12 @@ footer {
   body {
     word-wrap:break-word;
   }
-  
+  .viewgh {
+    display: none;
+  }
   header {
-    padding:0;
+    padding-left:20px;
+    padding-right: 20px;
   }
   
   header ul, header p.view {
