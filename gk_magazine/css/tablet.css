@@ -1,0 +1,253 @@
+/*
+#------------------------------------------------------------------------
+# Magazine - January Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2013 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+
+body {
+	background-color: #fff!important;
+	background-image: none!important;
+}
+/* Containers */
+#gkPageContent {
+	background-image: none!important;
+}
+#gkContent, 
+#gkSidebar,
+#gkInset,
+#gkContentWrap {
+	width: 100% !important;
+}
+#gkContentWrap {
+	margin-top: 20px;
+	padding: 0!important;
+}
+#gkBannerTop {
+	display: none;
+}
+#gkInset .box,
+#gkSidebar .box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px!important;
+}
+#gkInset,
+#gkSidebar {
+	padding: 0!important;
+}
+#gkInset .box:first-child, 
+#gkSidebar .box:first-child {
+	padding-top: 10px!important;
+}
+#gkInset.gkOnlyMenu {
+	display: none;
+}
+#gkInset .box,
+#gkSidebar .box {
+	border-top: none!important;
+	float: left;
+	margin-top: 0!important;
+	margin-bottom: 30px!important;
+	width: 50%;
+}
+#gkSidebar.gkOnlyOne .box,
+#gkInset.gkOnlyOne .box {
+	width: 100%!important;
+}
+
+#gkSidebar .box:nth-child(2n+1) {
+	clear: both!important;
+}
+
+#gkContent #gkInset {
+	clear: both;
+	width: 100%!important;
+}
+
+#gkInset .box,
+#gkInset .box.light,
+#gkInset .box.pattern {
+	float: left;
+	margin: 0 0 30px 0!important;
+	width: 50%;
+}
+
+/* Limitation suffixes */
+.box.onlydesktop {
+	display: none!important;
+}
+
+.box.notablet {
+	display: none!important;
+}
+.box.nomobile {
+	display: block!important;
+}
+.box.onlytablet {
+	display: block!important;
+}
+.box.onlymobile {
+	display: none!important;
+}
+.box.notablet.nomobile {
+	display: none!important;
+}
+
+/* Fix for the contact page */
+.contact .contact-image {
+	float: left !important;
+}
+.contact .contact-address {
+	clear: both !important;
+	padding-top: 20px !important;
+}
+.contact .contact-form input[type="text"],
+.contact .contact-form input[type="email"],
+.contact .contact-form textarea {
+	width: 100% !important;
+}
+
+/* K2 edit popup */
+#sbox-window,
+#sbox-window iframe {
+	width: 720px!important;
+	max-width: 720px!important;
+	left: 10px!important;
+}
+
+/* menu */
+#gkMobileMenu {
+	background: transparent url('../images/style1/tablet_menu.png') no-repeat 0 0;
+	margin: 0;
+	position: relative;
+}
+#gkExtraMenu {
+	display: none!important;
+}
+#gkMainMenu {
+	border: none!important;
+	clear: none!important;
+	float: left;
+	text-indent: 15px;
+	width: 64px!important;
+}
+#gkMobileMenu select {
+	width: 52px;
+	height: 52px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#gkMobileMenu {
+	display: block!important;
+	font-size: 18px;
+	height: 52px;
+	line-height: 52px;
+	position: relative;
+	width: 52px;
+	text-indent: -9999px;
+}
+
+/* top/bottom modules */
+
+/* 4-column layout */
+body .gkCols4 .box {
+	margin-bottom: 30px!important;
+}
+body .gkCols4 .box.gkmod-1 {
+	width: 100%;	
+}
+body .gkCols4 .box.gkmod-2 {
+	width: 50%;
+}
+body .gkCols4 .box.gkmod-3 {
+	width: 50%;
+}
+body .gkCols4 .box.gkmod-4,
+body .gkCols4 .box.gkmod-more {
+	width: 50%;
+}
+body .gkCols4 .box:nth-child(2n+1) {
+	clear: both;
+}
+body .gkCols4 .box.gkmod-more.gkmod-last-1:last-child {
+	width: 100%!important;
+}
+body .gkCols4 .box.gkmod-more.gkmod-last-2:last-child,
+body .gkCols4 .box.gkmod-more.gkmod-last-2:nth-last-child(2) {
+	width: 50%!important;
+}
+body .gkCols4 .box.gkmod-more.gkmod-last-3:last-child,
+body .gkCols4 .box.gkmod-more.gkmod-last-3:nth-last-child(2),
+body .gkCols4 .box.gkmod-more.gkmod-last-3:nth-last-child(3) {
+	width: 50%!important;
+}
+
+/* 6-column layout */
+body .gkCols6 .box {
+	margin-bottom: 30px!important;
+}
+body .gkCols6 .box.gkmod-1 {
+	width: 100%;	
+}
+body .gkCols6 .box.gkmod-2 {
+	width: 50%;
+}
+body .gkCols6 .box.gkmod-3 {
+	width: 33.3%;
+}
+body .gkCols6 .box.gkmod-4,
+body .gkCols6 .box.gkmod-more {
+	width: 33.3%;
+}
+body .gkCols6 .box.gkmod-5,
+body .gkCols6 .box.gkmod-more {
+	width: 33.3%;
+}
+body .gkCols6 .box.gkmod-6,
+body .gkCols6 .box.gkmod-more {
+	width: 33.3%;
+}
+body .gkCols6 .box:nth-child(3n+1) {
+	clear: both;
+}
+body .gkCols6 .box.gkmod-more.gkmod-last-1:last-child {
+	width: 100%!important;
+}
+body .gkCols6 .box.gkmod-more.gkmod-last-2:last-child,
+body .gkCols6 .box.gkmod-more.gkmod-last-2:nth-last-child(2) {
+	width: 50%!important;
+}
+body .gkCols6 .box.gkmod-more.gkmod-last-3:last-child,
+body .gkCols6 .box.gkmod-more.gkmod-last-3:nth-last-child(2),
+body .gkCols6 .box.gkmod-more.gkmod-last-3:nth-last-child(3) {
+	width: 33.3%!important;
+}
+body .gkCols6 .box.gkmod-more.gkmod-last-4:last-child,
+body .gkCols6 .box.gkmod-more.gkmod-last-4:nth-last-child(2),
+body .gkCols6 .box.gkmod-more.gkmod-last-4:nth-last-child(3),
+body .gkCols6 .box.gkmod-more.gkmod-last-4:nth-last-child(4) {
+	width: 33.3%!important;
+}
+body .gkCols6 .box.gkmod-more.gkmod-last-5:last-child,
+body .gkCols6 .box.gkmod-more.gkmod-last-5:nth-last-child(2),
+body .gkCols6 .box.gkmod-more.gkmod-last-5:nth-last-child(3),
+body .gkCols6 .box.gkmod-more.gkmod-last-5:nth-last-child(4),
+body .gkCols6 .box.gkmod-more.gkmod-last-5:nth-last-child(5) {
+	width: 33.3%!important;
+}
+
+/* Suffixes and other elements */
+
+/* Page elements */
+h1 {
+	font-size: 36px;
+}

@@ -1,0 +1,121 @@
+/*
+#------------------------------------------------------------------------
+# Magazine - January Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2013 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+
+.box {
+	overflow: hidden;
+}
+
+.nspArt img:hover {
+	filter: alpha(opacity=85);	
+}
+
+body #gkPage img {
+	width: auto!important;
+}
+
+#gkContentTop {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.box.hot:before,
+.box.top:before,
+.box.new:before {
+	zoom: 1!important;
+}
+
+.display-limit {
+	white-space: pre;
+	word-break: keep-all;
+}
+
+.display-limit select {
+	display: inline!important;
+}
+
+.print-icon img,
+.email-icon img,
+.edit-icon img {
+	display: block;
+	margin-left: 10px;
+	margin-top: -10px;
+}
+
+.k2Avatar img {
+	width: 32px!important;
+	max-width: 32px!important;
+}
+
+.itemAuthorBlock .gkAvatar img {
+	height: 80px!important;
+	max-width: 80px!important;
+	width: 80px!important;
+}
+
+span.gkAvatar img {
+	max-width: 48px!important;
+}
+.nspArt img.nspImage {
+    width: auto!important;
+    max-width: auto!important;
+}
+
+article header {
+	overflow: hidden;
+}
+
+/* Fix for crashing IE8 */
+li.itemRatingBlock {
+	display: none!important;
+}
+
+/* Fix for the print/email icons */
+li.print-icon,
+li.email-icon {
+	margin-top: 10px!important;
+}
+
+li.print-icon:after,
+li.email-icon:after {
+	display: none!important;
+}
+
+.k2LatestCommentsBlock .k2Avatar {
+	height: 30px!important;
+	width: 30px!important;
+}
+table,
+table tr,
+table td,
+table tbody,
+table thead {
+     vertical-align: top!important;
+}
+
+.gkIsWrapper-gk_startup .gkIsText {
+	top: 115px; 
+}
+.gkIsWrapper-gk_startup .gkIsText.active { 
+	filter: alpha(opacity=100);
+}
+.gkIsWrapper-gk_startup .gkIsSlide { 
+	bottom: 50px;
+}
+
+.ie8clear {
+	clear: both;
+}
+
+#gkMainbody article {
+	overflow: hidden;
+}

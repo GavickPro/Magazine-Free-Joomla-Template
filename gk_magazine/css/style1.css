@@ -1,0 +1,320 @@
+/*
+#------------------------------------------------------------------------
+# Magazine - January Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2013 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+ 
+/* Style 1 */
+
+/* template.css */
+
+a,
+#gkMainbody a:active,
+#gkMainbody a:focus,
+#gkMainbody a:hover,
+#gkMainbody header h1 a,
+#k2Container article header h2 a {
+	color: #363636;
+}
+a:hover,
+a:active,
+a:focus,
+#gkMainbody a,
+#gkMainbody header h1 a:active,
+#gkMainbody header h1 a:focus,
+#gkMainbody header h1 a:hover,
+#k2Container article header h2 a:active,
+#k2Container article header h2 a:focus,
+#k2Container article header h2 a:hover {
+	color: #4d90fe;
+}
+#gkLogo.cssLogo {
+	background-color: #4d90fe
+}
+#gkLogo:hover {
+	background-color: #fec64d;
+}
+#gkLogo.text {
+	background: #4d90fe;
+}
+#gkLogin:active,
+#gkLogin:focus,
+#gkLogin:hover,
+#gkRegister:active,
+#gkRegister:focus,
+#gkRegister:hover {
+	background-color: #fec64d;
+}
+#gkBackToTop:hover,
+#gkToolbar a.gk-icon-search:hover,
+#gkToolbar a.gk-icon-email:hover { background: #4d90fe; }
+
+#gkSearch form {
+	background-color: #4d90fe;
+}
+#gkSearch #mod-search-searchword {
+	background: #4d90fe;
+	border-bottom-color: #72a7ff;
+}
+.gkRSS,
+.gkMail,
+.gkTwitter,
+.gkFb,
+.gkGplus,
+.gkPinterest {
+	background-image: url('../images/style1/icons.png');
+}
+.box.color1 {
+	background: #4d90fe!important;
+}
+.box.color1 ul li {
+	border-bottom: 1px solid #659fff;
+}
+.box.color1 a {
+	color: #c7dcff;
+}
+.box.color2 .header {
+	color: #4d90fe;
+}
+#gkPopupLogin #form-login-buttons input.button {
+	background: #fec64d;
+}
+#gkPopupLogin #form-login-buttons input.button:hover {
+	background: #4d90fe;
+}
+
+/* joomla.css */
+
+button,
+.button,
+input.button,
+span.button,
+button.button,
+div.button,
+input[type="submit"],
+input[type="button"],
+.pagenav-prev a,
+.pagenav-next a,
+.readon,
+.pagination ul li a,
+.pagination ul li span {
+	background: #4d90fe;
+}
+button:hover,
+.button:hover,
+input.button:hover,
+span.button:hover,
+button.button:hover,
+div.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.pagenav-prev a:hover,
+.pagenav-next a:hover,
+.readon:hover,
+.pagination ul li a:hover,
+.pagination ul li span:hover {
+	background: #fec64d;
+}
+#gkMainbody .itemReadMore,
+#gkMainbody .readmore > a {
+	background-color: #4d90fe;
+}
+#gkMainbody .itemReadMore:active,
+#gkMainbody .itemReadMore:focus,
+#gkMainbody .itemReadMore:hover,
+#gkMainbody .readmore > a:active,
+#gkMainbody .readmore > a:focus,
+#gkMainbody .readmore > a:hover {
+	background-color: #fec64d;
+}
+th a:active,
+th a:focus,
+th a:hover {
+	color: #4d90fe!important;
+}
+article header h1 a:hover,
+article header h2 a:hover {
+	color: #4d90fe;
+}
+article header li a:hover {
+	color: #4d90fe;
+}
+.tip-title {
+	background: #4d90fe;
+}
+#system-message dd {
+	background-color: #FEC64D;
+	background-image: url('../images/style1/typography/info.png');
+}
+#system-message dd.error {
+	background-color: #FE724D;
+	background-image: url('../images/style1/typography/warning.png');
+}
+#system-message dd.notice {
+	background-color: #4D90FE;
+	background-image: url('../images/style1/typography/tips.png');
+}
+.autocompleter-queried {
+	color: #4d90fe!important
+}
+.menu li:hover {
+	background: #4d90fe;
+}
+th a:active,
+th a:focus,
+th a:hover,
+article header h1 a:hover,
+article header h2 a:hover {
+	color: #4d90fe;
+}
+
+/* gk_stuff.css */
+
+.nspPagination li:hover,
+.nspPagination li.active { 
+	background: #4d90fe;
+}
+.nspArt h4.nspHeader a:active,
+.nspArt h4.nspHeader a:focus,
+.nspArt h4.nspHeader a:hover { 
+	color: #4d90fe; 
+}
+.nspArt p.nspInfo a:active,
+.nspArt p.nspInfo a:focus,
+.nspArt p.nspInfo a:hover { 
+	color: #4d90fe;
+}
+.color1 .nspArt p.nspInfo { 
+	color: #c7dcff;
+}
+.color1 .nspArt p.nspInfo a { 
+	color: #c7dcff; 
+}
+.color1 .nspLinks ul li h4 a { 
+	color: #c7dcff;
+}
+.color1 .nspArt h4.nspHeader a { 
+	color: #c7dcff;
+}
+.color1 .nspPagination li { 
+	background: #c7dcff; 
+}
+.headlines .nspNewWrap {
+	background-color: #4d90fe;
+}
+.nsphover .nspImageWrapper .nspHeader {
+	background: #4d90fe;
+	background: rgba(77, 144, 254, 0.85);
+}
+.nsphover .nspArt .nspInfo2 {
+	background: #fec64d;
+}
+.nsphover .nspHoverOverlay {
+	background: #4d90fe;
+}
+.nsphover .nspHoverOverlay .nspText,
+.nsphover .nspHoverOverlay .nspText a {
+	color: #c7dcff;
+}
+.nsphover .nspHoverOverlay .nspHeader a:active,
+.nsphover .nspHoverOverlay .nspHeader a:focus,
+.nsphover .nspHoverOverlay .nspHeader a:hover {
+	color: #c7dcff;
+}
+.gkTabsWrap.vertical ol li.active,
+.gkTabsWrap.vertical ol li.active:hover {
+   background: #FEC64D;
+   border-color: #FEC64D;  
+}
+.gkTabsWrap.vertical ol li:hover { 
+	color: #4d90fe; 
+}
+
+/* menu.css */
+
+.gkMenu a:hover,
+.gkMenu a:active,
+.gkMenu a:focus,
+.gkMenu li.active > a {
+	color: #4d90fe;
+}
+.gkMainMenu1 .gkMenu > ul li div.childcontent,
+.gkMainMenu2 .gkMenu > ul li li div.childcontent {
+	background: #4d90fe;
+}
+.gkMainMenu1 .gkMenu > ul li div.childcontent-inner,
+.gkMainMenu2 .gkMenu > ul li li div.childcontent-inner {
+	background: #4d90fe;
+}
+.gkMainMenu1 .gkMenu > ul li div.childcontent li,
+.gkMainMenu2 .gkMenu > ul li li div.childcontent li {
+	border-top: 1px solid #659fff;
+}
+.gkMainMenu1 .gkMenu > ul li div.childcontent li:hover,
+.gkMainMenu2 .gkMenu > ul li li div.childcontent li:hover {
+	background: #3c82f6;
+}
+.gkMainMenu1 .gkMenu > ul li div.childcontent small,
+.gkMainMenu2 .gkMenu > ul li li div.childcontent small {
+	color: #C7DCFF;
+}
+.gkMainMenu1 .gkMenu > ul li div.childcontent header a,
+.gkMainMenu2 .gkMenu > ul li li div.childcontent header a {
+	border-bottom: 2px solid #5fb2ff;
+}
+
+/* k2.css */
+
+h1 > sup,
+h2 > sup {
+	background: #fec64d;
+}
+span#formLog {
+	background: #4d90fe;
+}
+.k2TagCloudBlock a:hover {
+	background: #4d90fe;
+}
+.itemAttachmentsBlock {
+	background-color: #FEC64D;
+	background-image: url('../images/style1/typography/tips.png');
+}
+.itemAuthorContent ul li {
+	background-image: url('../images/style1/typography/bullet1.png');
+}
+#itemListLinks li {
+	background-image: url('../images/style1/typography/bullet-square2.png');
+}
+.k2TagCloudBlock a {
+	background: #FEC64D;
+	border-color: #FEC64D;
+}
+.k2TagCloudBlock a:hover {
+	background: #4d90fe;
+	border-color: #4d90fe;
+}
+.k2CalendarBlock table.calendar tr td.calendarDateLinked a:hover {
+	background: #fec64d;
+}
+.k2CalendarBlock table.calendar tr td.calendarToday {
+	background: #4d90fe;
+}
+table.calendar tr td.calendarTodayLinked a {
+	color: #4d90fe;
+}
+.k2CalendarBlock table.calendar tr td.calendarTodayLinked a:hover {
+	background: #fec64d;
+}
+.calendarNavLink { 
+	color: #4d90fe;
+}
+
+/* Tablet */
+
+#gkMobileMenu {
+	background-image: url('../images/style1/tablet_menu.png');
+}

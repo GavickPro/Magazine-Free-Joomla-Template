@@ -1,0 +1,984 @@
+/*
+#------------------------------------------------------------------------
+# Magazine - January Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2013 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+
+
+.k2FeedIcon a,
+a.k2FeedIcon {
+	display: block;
+	height: 21px;
+	line-height: 21px;
+	margin: 32px 0 0;
+	padding: 0 0 0 32px;
+	float: left;
+	font-size: 13px;
+	color: #999;
+	background: url('../images/k2/rss.png') no-repeat 0 0;
+}
+.k2FeedIcon a:hover,
+a:hover.k2FeedIcon {
+	color: #222;
+}
+.k2FeedIcon a {
+	float: none;
+}
+/* item view */
+
+article header ul + ul {
+	border: 1px solid #e5e5e5;
+	border-left: none;
+	border-right: none;
+}
+article header ul + ul li {
+	line-height: 28px;
+}
+h1 > sup,
+h2 > sup {
+	background: #fec64d;
+	font-size: 10px;
+	font-weight: 600;
+	top: -2.5em;
+	color: #fff;
+	padding: 2px 6px;
+	text-transform: uppercase
+}
+ul li.itemResizer a {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('../images/k2/fonts.png') no-repeat 100% 5px;
+	text-indent: -9999em;
+}
+ul li.itemResizer span {
+	padding: 0 6px 0 0;
+}
+ul li.itemResizer #fontIncrease {
+	background-position: 0 5px;
+}
+.smallerFontSize {
+	font-size: 90% !important;
+}
+.largerFontSize {
+	font-size: 115% !important;
+}
+
+.itemPrint, .itemEmail { float: right}
+.itemPrint a, .itemEmail a { color: #242424 !important}
+.itemImageBlock {
+	position: relative;
+	margin: 0 0 40px;
+}
+.itemImage {
+	display: block;
+	line-height: 0;
+	overflow: hidden;
+}
+.itemImageBlock img {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: block;
+	height: auto;
+	max-width: 100%;
+	padding: 0;
+}
+.itemImageBlock img:hover { 
+	-webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+	   -moz-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+	    -ms-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+	     -o-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+	        box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+}
+.itemImageCaption {
+	display: block;
+	color: #999;
+	padding: 8px 0 0;
+	
+	font-size: 11px;
+}
+.itemImageBlock > a {
+	display: block;
+	width: 100%;
+}
+.itemExtraFields ul li span.itemExtraFieldsValue,
+.itemLinks .itemCategory a,
+.itemLinks .itemTagsBlock ul {
+	display: block;
+	margin: 0 0 0 21%;
+}
+.itemBottom .itemRatingBlock span,
+.itemBottom .itemRatingBlock .itemRatingList,
+.itemBottom .itemRatingBlock .itemRatingForm ul.itemRatingList li,
+.itemLinks .itemCategory span,
+.itemLinks .itemAttachmentsBlock > span,
+.itemExtraFields ul li span.itemExtraFieldsLabel,
+.itemLinks .itemTagsBlock span,
+.itemLinks .itemTagsBlock ul li,
+.latestView .itemsContainer {
+	float: left;
+}
+.itemBottom {
+	clear: both;
+	margin: 0 0 6px;
+}
+.itemLinks {
+	clear: both;
+	margin: 38px 0;
+}
+.itemLinks .itemTagsBlock,
+.itemLinks .itemSocialSharing {
+	clear: both;
+	overflow: hidden;
+	
+}
+.itemSocialSharing {
+	
+	padding: 20px 0;
+	margin-top: 38px;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	
+    
+}
+.itemExtraFields {
+	margin: 8px 0 24px;
+	font-size: 12px;
+}
+.itemExtraFields h3 {
+	padding: 0 0 8px;
+	font-size: 18px;
+}
+small.itemDateModified {
+	display: block;
+	text-align: right;
+	font-style: italic
+}
+.itemRatingBlock {
+	overflow: hidden;
+}
+.itemRatingBlock span {
+	float: left;
+}
+.itemRatingForm {
+	display: block;
+	vertical-align: middle;
+	line-height: 25px;
+	margin-left: 20%;
+}
+.itemRatingLog {
+	margin: -2px 0 0;
+	padding: 0 0 0 4px;
+	float: left;
+	line-height: 25px;
+	font-size: 11px;
+	color: #999
+}
+span#formLog {
+	display: block;
+	float: none;
+	clear: both;
+	color: white;
+	background: #4d90fe;
+	text-align: center;
+	margin: 10px 0;
+	position: relative;
+	top: 10px;
+}
+.itemRatingForm .formLogLoading {
+	height: 25px;
+	padding: 0 0 0 20px;
+}
+.itemRatingList,
+.itemRatingList a:hover,
+.itemRatingList .itemCurrentRating {
+	background: url('../images/k2/star.png') left -1000px repeat-x;
+}
+.itemRatingList {
+	position: relative;
+	float: left;
+	width: 125px;
+	height: 25px;
+	overflow: hidden;
+	list-style: none;
+	margin: 0 6px !important;
+	padding: 0;
+	background-position: left top;
+}
+.itemRatingList li {
+	display: inline;
+	background: none;
+	padding: 0;
+	border: none !important;
+}
+.itemRatingList a,
+.itemRatingList .itemCurrentRating {
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-indent: -1000px;
+	height: 25px;
+	line-height: 25px;
+	outline: none;
+	overflow: hidden;
+	border: none;
+	cursor: pointer;
+}
+.itemRatingList a:hover {
+	background-position: left center;
+}
+.itemRatingList a.one-star {
+	width: 20%;
+	z-index: 6;
+}
+.itemRatingList a.two-stars {
+	width: 40%;
+	z-index: 5;
+}
+.itemRatingList a.three-stars {
+	width: 60%;
+	z-index: 4;
+}
+.itemRatingList a.four-stars {
+	width: 80%;
+	z-index: 3;
+}
+.itemRatingList a.five-stars {
+	width: 100%;
+	z-index: 2;
+}
+.itemRatingList .itemCurrentRating {
+	z-index: 1;
+	background-position: 0 bottom;
+	margin: 0;
+	padding: 0;
+}
+.itemTags li a,
+.k2TagCloudBlock a,
+.moduleItemTags a {
+	
+	
+	
+	
+	
+	
+}
+.itemTags li a:hover,
+.moduleItemTags a:hover {
+	background-position: 0 100%;
+}
+.k2TagCloudBlock a {
+	background-image: none;
+	height: auto;
+	line-height: normal;
+}
+.k2TagCloudBlock a:hover {
+	background: #4d90fe;
+}
+.itemExtraFields ul li {
+	list-style: none;
+	padding: 5px 0;
+	border-top: 1px solid #eee;
+}
+.itemLinks ul li {
+	list-style: none;
+	margin-right: 10px;
+}
+.itemTagsBlock ul li:after { 
+	content: ",";
+}
+
+.itemAttachmentsBlock {
+	margin: 0 0 48px;
+	background: #FEC64D url('../images/style1/typography/tips.png') no-repeat 6px 3px;
+	min-height: 38px;
+	padding: 10px 10px 10px 80px;
+}
+
+.itemLinks .itemAttachmentsBlock ul li a {
+	color: #fff !important;
+	font-weight: 400;
+	margin-left: 12px;
+}
+.itemLinks .itemAttachmentsBlock ul li a span { font-weight: normal; font-size: 11px;}
+.itemLinks .itemSocialSharing > div {
+	float: left;
+}
+.itemAuthorBlock {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
+	clear: both;
+	float: left;
+}
+.itemAuthorBlock > .gkAvatar {
+	float: left;
+	padding: 12px;
+	max-width: 80px;
+}
+.itemAuthorBlock > .gkAvatar > img {
+	display: block;
+}
+.itemAuthorBlock .itemAuthorDetails {
+	margin: 0 24px 0 130px;
+	line-height: 1.7;
+}
+.itemAuthorBlock .itemAuthorDetails p {
+	margin: 0.5em 0 0.8em;
+}
+.itemAuthorUrl,
+.itemAuthorEmail {
+	font-size: 12px;
+}
+.itemAuthorData {
+	overflow: hidden;
+	margin: 0 0 36px;
+	padding: 16px;
+	background: #f9f9f9;
+	clear: both;
+}
+.itemAuthorData h3 {
+	font-size: 20px;
+	font-weight: 400;
+	color: #242424
+}
+.itemAuthorData a { color: #242424 !important}
+.itemAuthorData .itemAuthorContent {
+	
+	margin: 0;
+}
+.itemAuthorContent {
+	margin: 0 0 32px 0;
+	overflow: hidden;
+}
+
+.itemAuthorContent ul li {
+	background: url('../images/style1/typography/bullet1.png') no-repeat 0 12px;
+	
+	line-height: 1.6;
+	padding: 5px 0 0 24px;
+	
+}
+
+.itemNavigation {
+	clear: both;
+	padding: 0;
+	font-size: 12px;
+	color: #7D7B7A;
+}
+.itemAuthorContent ul li a:hover {
+	color: #2f3336;
+}
+.itemComments h3, .itemAuthorContent h3 { 
+   border-top: 1px solid #e5e5e5;
+    line-height: 1;
+	padding: 38px 0
+    }
+.itemCommentsForm label {
+	display: block;
+	clear: both;
+	padding: 12px 0 6px
+}
+.itemCommentsForm textarea,
+.itemCommentsForm .inputbox {
+	float: left;
+}
+.itemCommentsForm textarea.inputbox {
+	height: 200px;
+}
+.itemCommentsForm .inputbox {
+	width: 100%;
+}
+.itemCommentsForm #submitCommentButton {
+	clear: both;
+	margin: 20px 0 0;
+}
+.itemCommentsForm .itemCommentsFormNotes {
+	margin: 0 0 24px;
+	color: #999;
+	font-size: 13px;
+	
+}
+#itemCommentsAnchor {
+	clear: both;
+	
+	
+}
+.itemComments p {margin: 0.5em 0}
+.itemComments .itemCommentsList {
+	clear: both;
+	padding: 36px 0 12px;
+}
+.itemComments .itemCommentsList li {
+	border-top: 1px solid #e5e5e5;
+	margin: 0 0 24px;
+	padding: 24px 0 0;
+	
+}
+.itemComments .itemCommentsList li > div { 
+	padding: 10px;
+}
+
+.itemComments .itemCommentsList li > img, .k2LatestCommentsBlock img{
+	float: left;
+	border-radius: 50%;
+	   -webkit-border-radius: 50%;
+	      -moz-border-radius: 50%;
+	         -o-border-radius: 50%;
+	border: 1px solid #e5e5e5;
+	margin: 18px 0 0;
+	padding: 5px
+}
+.itemComments .itemCommentsList li > div {
+	margin: 0 0 0 92px;
+}
+.itemComments .itemCommentsList li span {
+	margin-right: 16px;
+	font-size: 13px;
+	color: #999
+	
+}
+.itemComments .itemCommentsList li span:first-child { font-size: 16px; font-weight: 600; color: #242424;}
+.itemComments .itemCommentsList li span:first-child a { color: #242424 !important}
+a.commentLink { float: right}
+.itemBackToTop {
+	float: right;
+}
+/* Items views */
+.itemList article header h2,
+.itemsContainerWrap article header h1 {
+	margin: 0 0 16px;
+	font-size: 36px;
+	line-height: 42px;
+}
+.itemList ul.itemTags {
+	clear: both;
+	padding: 12px 0 0 0;
+}
+.itemTags {
+	padding-left: 4px !important;
+}
+.itemList ul.itemTags li {
+	float: left;
+}
+.clr {
+	clear: both;
+}
+.itemListSubCategories {
+	overflow: hidden;
+}
+.userView article,
+.genericView article,
+.itemList article {
+	clear: both;
+	margin-top: 38px !important;
+}
+/*.itemListSubCategories h2*/
+.subCategoryContainer {
+	float: left;
+	margin-bottom: 32px;
+}
+.subCategoryContainer .subCategory {
+	margin: 0 32px 24px 0;
+}
+.itemContainer {
+	float: left;
+}
+.itemList article {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 56px;
+}
+.itemsContainer:first-child .itemList article,
+.itemsContainer .itemsContainerWrap .itemList article, 
+#itemListLeading .itemContainer:first-child article.itemView,
+.genericView .itemList article:first-child  { 
+    border: none; 
+	margin-top: 0 !important;
+	padding: 0
+}
+itemContainerLast article {
+	margin: 0;
+}
+#itemListLinks {
+	clear: both;
+}
+#itemListLinks ul {
+	margin: 12px 0 0 0;
+}
+#itemListLinks li {
+	background: url('../images/style1/typography/bullet-square2.png') no-repeat 0 6px;
+	padding-left: 24px;
+	font-size: 13px;
+}
+#itemListLinks a {
+	color: #737373;
+}
+#itemListLinks a:hover {
+	color: #2f3336;
+}
+/* Modules */
+/*----------------------------------------------------------------------
+Modules:  mod_k2_comments
+----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------
+Modules:  mod_k2_comments
+----------------------------------------------------------------------*/
+/* Latest Comments & Author module*/
+.k2LatestCommentsBlock .k2FeedIcon {
+	margin-top: 16px;
+}
+.k2LatestCommentsBlock ul li,
+.k2TopCommentersBlock ul li {
+	padding: 12px 0 !important;
+	list-style: none !important;
+	line-height: 1.5 !important;
+}
+.k2Avatar {
+	display: block !important;
+	float: left;
+	margin: 0 24px 0 0;
+}
+.lcAvatar {
+	margin: 0 12px 0 0;
+}
+.lcAvatar img { margin: 0;}
+.lcUsername {
+	font-weight: 600;
+	font-size: 12px;
+}
+.k2LatestCommentsBlock div {
+	margin-left: 72px
+	
+}
+.k2LatestCommentsBlock div p { margin: 0.3em 0}
+
+.k2AuthorsListBlock ul li {
+	border: none;
+	border-bottom: 1px solid #eee;
+	padding: 12px 0;
+}
+.k2AuthorsListBlock ul li a.abAuthorLatestItem {
+	display: block;
+	clear: both;
+	margin: 12px 0 0;
+	padding: 0 0 0 12px;
+	font-size: 11px;
+	line-height: 14px;
+}
+.k2AuthorsListBlock ul li a.abAuthorLatestItem span {
+	display: block;
+	font-size: 10px;
+	color: #777;
+}
+/* Restriction */
+#gkRight .k2Avatar,
+#gkLeft .k2Avatar {
+	border-color: #fff;
+}
+/* Top Commenters */
+.tcUsername {
+	font-size: 18px;
+	color: #333;
+}
+.tcLatestComment {
+	display: block;
+	margin: 6px 0;
+	font-size: 13px;
+	color: #737373;
+}
+.tcLatestCommentDate {
+	display: block;
+	font-size: 11px;
+	color: #999;
+}
+/*----------------------------------------------------------------------
+Modules:  mod_k2_content
+----------------------------------------------------------------------*/
+div .k2ItemsBlock ul {
+	margin-right: -20px;
+}
+div .k2ItemsBlock ul li {
+	margin: 0 0 12px;
+	background: none !important;
+	padding: 12px 20px 12px 0 !important;
+	list-style: none !important;
+}
+a.moduleItemTitle {
+	color: #2f3336;
+	display: block;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 22px;
+}
+.moduleItemAuthor {
+	overflow: hidden;
+	margin: 0 0 16px;
+	font-size: 11px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.moduleItemAuthor a {
+	color: #2f3336;
+	display: block;
+	font: bold 12px Verdana, Geneva, sans-serif;
+	padding: 0 0 12px;
+}
+.moduleItemAuthor p {
+	clear: both;
+}
+.moduleItemIntrotext {
+	display: block;
+	padding: 12px 0 0;
+	line-height: 1.6;
+}
+.moduleItemIntrotext a.moduleItemImage img {
+	float: left;
+	overflow: hidden;
+	margin: 4px 0;
+}
+.moduleItemDateCreated,
+.moduleItemCategory {
+	font: normal 10px Verdana, Geneva, sans-serif;
+	color: #999;
+}
+.moduleItemExtraFields ul li span.moduleItemExtraFieldsLabel {
+	display: block;
+	float: left;
+	font-weight: bold;
+	margin: 0 4px 0 0;
+	width: 30%;
+}
+.moduleItemTags,
+.moduleAttachments {
+	overflow: hidden;
+	border-top: 1px solid #e5e5e5;
+	margin: 12px 0 0;
+	padding: 12px 0 0;
+}
+.moduleItemTags strong {
+	font-size: 12px;
+	color: #2f3336;
+}
+.moduleItemTags a {
+	float: right;
+}
+a.moduleItemComments {
+	font-size: 12px;
+}
+a:hover.moduleItemComments {
+	background-position: 0 100%;
+	color: #fff;
+}
+.k2ItemsBlock ul li span.moduleItemHits {
+	font-size: 90%;
+}
+.moduleItemImage {
+	display: block;
+	margin-bottom: 10px;
+	overflow: hidden;
+	width: 100%;
+}
+.moduleItemReadMore {
+	display: block;
+	clear: both;
+}
+/*---Modules:  mod_k2_login ---*/
+.k2LoginBlock fieldset.input {
+	margin: 0;
+	padding: 0 0 8px 0;
+}
+.k2LoginBlock fieldset.input p {
+	margin: 0;
+	padding: 0 0 4px 0;
+}
+.k2LoginBlock fieldset.input p label,
+.k2LoginBlock fieldset.input p input {
+	display: block;
+}
+.k2LoginBlock fieldset.input p#form-login-remember label,
+.k2LoginBlock fieldset.input p#form-login-remember input {
+	display: inline;
+}
+.k2UserBlock p.ubGreeting {
+	border-bottom: 1px dotted #eee;
+}
+.k2UserBlock .k2UserBlockDetails span.ubName {
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+}
+/* ---Modules:  mod_k2_tools ---*/
+/* ---Breadcrumbs ---*/
+.k2BreadcrumbsBlock span.bcTitle {
+	padding: 0 4px 0 0;
+	color: #999;
+}
+.k2BreadcrumbsBlock span.bcSeparator {
+	padding: 0 4px;
+	font-size: 14px;
+}
+/* ---Calendar ---*/
+.k2CalendarBlock {
+	margin-bottom: 8px;
+}
+/* use this height value so that the calendar height won't change on Month change via ajax */
+.k2CalendarLoader {
+	background: #fff;
+}
+.k2CalendarBlock table.calendar {
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+	border-collapse: collapse;
+	border-left: 1px solid #eee;
+}
+.k2CalendarBlock table.calendar tr td {
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px;
+	border: 1px solid #eee;
+	background: #fff;
+}
+.k2CalendarBlock table.calendar tr td.calendarNavMonthPrev,
+.k2CalendarBlock table.calendar tr td.calendarNavMonthNext {
+	background: #fff;
+	text-align: center;
+	font-size: 15px !important;
+}
+.k2CalendarBlock table.calendar tr td.calendarDayName {
+	background: #f5f5f5;
+	font-size: 11px;
+	width: 14.2%;
+	color: #333;
+	font-weight: 600;
+}
+.k2CalendarBlock table.calendar tr td.calendarDateEmpty {
+	background: #fbfbfb;
+}
+.k2CalendarBlock table.calendar tr td.calendarDate {
+	font-size: 11px;
+}
+.k2CalendarBlock table.calendar tr td.calendarDateLinked {
+	padding: 0;
+}
+.k2CalendarBlock table.calendar tr td.calendarDateLinked a {
+	display: block;
+	padding: 2px;
+}
+.k2CalendarBlock table.calendar tr td.calendarDateLinked a:hover {
+	display: block;
+	background: #fec64d;
+	color: #fff !important;
+	padding: 2px;
+}
+.k2CalendarBlock table.calendar tr td.calendarToday {
+	background: #4d90fe;
+	color: #fff;
+}
+.k2CalendarBlock table.calendar tr td.calendarTodayLinked {
+	background: #f5f5f5;
+	
+	padding: 0;
+}
+table.calendar tr td.calendarTodayLinked a {
+	display: block;
+	padding: 2px;
+	color: #4d90fe;
+	font-size: 12px;
+	font-weight: bold
+}
+.k2CalendarBlock table.calendar tr td.calendarTodayLinked a:hover {
+	display: block;
+	background: #fec64d;
+	color: #fff;
+	padding: 2px;
+}
+.calendarNavLink { color: #4d90fe}
+/* restriction */
+.gkColumns > aside .k2CalendarBlock table.calendar,
+.gkColumns > aside .k2CalendarBlock table.calendar tr td {
+	background: none;
+	border: none;
+	color: #fff;
+}
+.gkColumns > aside .k2CalendarBlock table.calendar tr td.calendarDateLinked a {
+	font-weight: 700;
+	font-size: 18px;
+}
+.gkColumns > aside .calendarNavMonthPrev,
+.gkColumns > aside .calendarCurrentMonth,
+.gkColumns > aside .calendarNavMonthNext {
+	background: #2f3336 !important;
+}
+.k2TagCloudBlock a {
+	background: #FEC64D;
+	border: 1px solid #FEC64D;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	margin: 3px;
+	padding: 10px;
+	text-transform: uppercase;	
+	-moz-transition: all .1s ease-out;
+	-o-transition: all .1s ease-out;
+	-webkit-transition: all .1s ease-out;
+	transition: all 0.1s ease-out 0s
+	
+	 
+}
+.k2TagCloudBlock a:hover {
+	color: #fff;
+	background: #4d90fe;
+	border-color: #4d90fe
+}
+/* ---Category Tree Select Box ---*/
+.k2CategorySelectBlock form select {
+	width: auto;
+}
+/* ---Tag Cloud ---*/
+.k2TagCloudBlock {
+	padding: 8px 0 0 4px;
+	font-size: 15px;
+}
+.k2TagCloudBlock a {
+	float: left;
+	margin-bottom: 6px;
+}
+/* ---Google Search ---*/
+#k2Container .gsc-branding-text {
+	text-align: right;
+}
+#k2Container .gsc-control {
+	width: 100%;
+}
+#k2Container .gs-visibleUrl {
+	display: none;
+}
+/* ---Modules:  mod_k2_users ---*/
+a.ubUserFeedIcon,
+a.ubUserFeedIcon:hover {
+	display: inline-block;
+	margin: 0 2px 0 0;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+}
+a.ubUserFeedIcon span,
+a.ubUserFeedIcon:hover span {
+	display: none;
+}
+a.ubUserURL,
+a.ubUserURL:hover {
+	display: inline-block;
+	margin: 0 2px 0 0;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+}
+a.ubUserURL span,
+a.ubUserURL:hover span {
+	display: none;
+}
+span.ubUserEmail {
+	display: inline-block;
+	margin: 0 2px 0 0;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+}
+span.ubUserEmail a {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+	text-indent: -9999px;
+}
+.k2UsersBlock ul li h3 {
+	clear: both;
+	margin: 8px 0 0 0;
+	padding: 0;
+}
+.catCounter {
+	font-size: 11px;
+	font-weight: normal;
+}
+/* Rating form fix */
+article header .itemRatingBlock > span {
+	display: none;
+}
+article header .itemRatingBlock > div {
+	margin: 3px 0 0 0;
+}
+/* Fix for the categories view */
+
+.itemContainerLast:first-child .itemImageBlock,
+.clr + .itemContainerLast .itemImageBlock {
+	padding: 0;
+}
+.itemCommentsPagination ul li {
+	display: inline-block;
+	margin: 0 3px;
+	font-size: 80%;
+}
+.itemCommentsPagination ul {
+	text-align: right;
+}
+/* change layout when more than 1 column */
+.itemsContainerWrap time + header,
+.cols-2 time + header,
+.cols-3 time + header,
+.cols-4 time + header {
+	padding-left: 0!important;
+}
+.itemsContainer .itemsContainerWrap,
+.itemContainer .itemsContainerWrap {
+	margin: 0 10px;
+}
+.itemsContainerWrap .itemView header ul li.itemDate,
+.itemsContainerWrap header ul li.item-date,
+.cols-2 header ul li.item-date,
+.cols-3 header ul li.item-date,
+.cols-4 header ul li.item-date {
+	display: block;
+}
+
+.itemsContainer .itemsContainerWrap .itemList article {
+	margin-bottom: 50px;
+}
+
+/* Latest Items columns */
+
+#k2Container article header h2 {
+	clear: both;
+	font-size: 44px;
+	line-height: 52px;
+}
+
+#k2Container .itemsContainerWrap article header h2 {
+	font-size: 28px;
+	line-height: 38px;
+}
+
+#k2Container .itemsContainerWrap article header {
+	margin-bottom: 10px;
+}
+.itemIntroText ol,
+.itemFullText ol {
+	list-style:decimal;
+	list-style-position:inside;
+}
+.itemAuthorContent { clear: both; }
+
+.itemLinks .itemTagsBlock, 
+.itemLinks .itemSocialSharing { overflow: visible; }
+div.itemSocialSharing { overflow: visible!important }

@@ -1,0 +1,73 @@
+/*
+#------------------------------------------------------------------------
+# Magazine - January Joomla! template (for Joomla 2.5)
+#
+# Copyright (C) 2007-2013 Gavick.com. All Rights Reserved.
+# License: Copyrighted Commercial Software
+# Website: http://www.gavick.com
+# Support: support@gavick.com 
+*/
+
+.gkPage {
+	padding: 0 25px;
+}
+
+#gkContentWrap {
+	padding: 0 10px!important;
+}
+
+#gkSidebar {
+	padding-left: 10px;
+}
+
+#gkContentWrap + #gkSidebar {
+	padding-left: 10px;
+}
+
+#gkContentWrap.gkSidebarLeft + #gkSidebar {
+	padding-right: 10px;
+}
+
+#gkInset {
+	padding-left: 20px;
+}
+
+#gkContent.gkColumnLeft + #gkInset {
+	padding-right: 20px;
+}
+
+#gkBottom1,
+#gkBottom2,
+#gkFooter {
+	padding: 0 35px!important;
+}
+
+#gkFooter {
+	text-align: center;
+}
+
+#gkFooterNav,
+#gkCopyrights {
+	clear: both;
+	display: block;
+	float: none!important;
+	margin: 10px auto;
+	overflow: hidden;
+}
+
+#gkFooterNav > ul {
+	display: inline-block;
+}
+
+.nsphover .nspInfo2 {
+	margin-bottom: 10px!important;
+	padding: 5px 12px!important;
+}
+
+.nsphover .nspHoverOverlay .nspHeader {
+	margin-bottom: 10px!important;
+}
+
+.nsphover .nspHoverOverlay .nspText {
+	margin-top: 10px!important;
+}

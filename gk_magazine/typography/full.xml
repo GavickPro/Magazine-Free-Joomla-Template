@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gktypography>
+	<group name="Warnings" type="html">
+		<item name="info1"><![CDATA[<p class="gkInfo1">Your info message goes here!</p>]]></item>
+		<item name="tips1"><![CDATA[<p class="gkTips1">Your info message goes here!</p>]]></item>
+		<item name="warning1"><![CDATA[<p class="gkWarning1">Your info message goes here!</p>]]></item>
+	</group>
+	
+	<group name="Headers" type="html">
+		<item name="H1"><![CDATA[<h1>Heading 1</h1>]]></item>
+		<item name="H2"><![CDATA[<h2>Heading 1</h2>]]></item>
+		<item name="H3"><![CDATA[<h3>Heading 1</h3>]]></item>
+		<item name="H4"><![CDATA[<h4>Heading 1</h4>]]></item>
+		<item name="H5"><![CDATA[<h5>Heading 5</h5>]]></item>
+		<item name="H6"><![CDATA[<h6>Heading 6</h6>]]></item>
+	</group>
+	
+	<group name="Icons" type="html">
+		<item name="gkfile1"><![CDATA[<p class="gkfile1">Your message goes here!</p>]]></item>
+		<item name="gkfile2"><![CDATA[<p class="gkfile2">Your message goes here!</p>]]></item>
+		<item name="gksearch"><![CDATA[<p class="gksearch">Your message goes here!</p>]]></item>
+		<item name="gkzoomminus"><![CDATA[<p class="gkzoomminus">Your message goes here!</p>]]></item>
+		<item name="gkzoomplus"><![CDATA[<p class="gkzoomplus">Your message goes here!</p>]]></item>
+		<item name="gkerror"><![CDATA[<p class="gkerror">Your message goes here!</p>]]></item>
+		<item name="gktick"><![CDATA[<p class="gktick">Your message goes here!</p>]]></item>
+		<item name="gkbook"><![CDATA[<p class="gkbook">Your message goes here!</p>]]></item>
+		<item name="gkmap"><![CDATA[<p class="gkmap">Your message goes here!</p>]]></item>
+		<item name="gktag"><![CDATA[<p class="gktag">Your message goes here!</p>]]></item>
+		<item name="gkstats"><![CDATA[<p class="gkstats">Your message goes here!</p>]]></item>
+		<item name="gkstar"><![CDATA[<p class="gkstar">Your message goes here!</p>]]></item>
+		<item name="gkribbon"><![CDATA[<p class="gkribbon">Your message goes here!</p>]]></item>
+		<item name="gknav"><![CDATA[<p class="gknav">Your message goes here!</p>]]></item>
+		<item name="gkgraph"><![CDATA[<p class="gkgraph">Your message goes here!</p>]]></item>
+		<item name="gkflash"><![CDATA[<p class="gkflash">Your message goes here!</p>]]></item>
+		<item name="gklocation"><![CDATA[<p class="gklocation">Your message goes here!</p>]]></item>
+		<item name="gklocationplus"><![CDATA[<p class="gklocationplus">Your message goes here!</p>]]></item>
+		<item name="gklocationminus"><![CDATA[<p class="gklocationminus">Your message goes here!</p>]]></item>
+		<item name="gkbulb"><![CDATA[<p class="gkbulb">Your message goes here!</p>]]></item>
+	</group>
+	
+	<group name="Highlights" type="html">
+		<item name="highlight-1"><![CDATA[<span class="gkHighlight1">Your highlight phrase goes here!</span>]]></item>
+		<item name="highlight-2"><![CDATA[<span class="gkHighlight2">Your highlight phrase goes here!</span>]]></item>
+		<item name="highlight-3"><![CDATA[<span class="gkHighlight3">Your highlight phrase goes here!</span>]]></item>
+		<item name="highlight-4"><![CDATA[<span class="gkHighlight4">Your highlight phrase goes here!</span>]]></item>
+		<item name="highlight-5"><![CDATA[<span class="gkHighlight5">Your highlight phrase goes here!</span>]]></item>
+	</group>
+	
+	<group name="Code" type="html">
+		<item name="pre"><![CDATA[<pre>code</pre>]]></item>
+		<item name="code1"><![CDATA[<div class="gkCode1">code</div>]]></item>
+		<item name="code2"><![CDATA[<div class="gkCode2">code</div>]]></item>
+		<item name="code3"><![CDATA[<div class="gkCode3">code</div>]]></item>
+	</group>
+	
+	<group name="Unordered lists" type="html">
+		<item name="bullet1"><![CDATA[<ul class="gkBullet1"><li>Element</li></ul>]]></item>
+		<item name="bullet2"><![CDATA[<ul class="gkBullet2"><li>Element</li></ul>]]></item>
+		<item name="bullet3"><![CDATA[<ul class="gkBullet3"><li>Element</li></ul>]]></item>
+		<item name="bullet4"><![CDATA[<ul class="gkBullet4"><li>Element</li></ul>]]></item>
+	</group>
+	
+	<group name="Numblocks" type="html">
+		<item name="num-1"><![CDATA[<p class="numblocks num-1"><span>here goes a number</span>text of element</p>]]></item>
+		<item name="num-2"><![CDATA[<p class="numblocks num-1"><span>here goes a number</span>text of element</p>]]></item>
+		<item name="num-3"><![CDATA[<p class="numblocks num-1"><span>here goes a number</span>text of element</p>]]></item>
+	</group>
+
+	<group name="Blocks" type="html">
+		<item name="block1"><![CDATA[<div class="gkblock-1">content here...</div>]]></item>
+		<item name="block2"><![CDATA[<div class="gkblock-2">content here...</div>]]></item>
+		<item name="block3"><![CDATA[<div class="gkblock-3">content here...</div>]]></item>
+	</group>
+	
+	<group name="Bubbles" type="html">
+		<item name="bubble1"><![CDATA[<div class="bubble-1">content here...<cite>Author here</cite></div>]]></item>
+		<item name="bubble2"><![CDATA[<div class="bubble-2">content here...<cite>Author here</cite></div>]]></item>
+	</group>
+	
+	<group name="Legends" type="html">
+		<item name="legend1"><![CDATA[<div class="gkLegend1"> <h4> Title </h4> <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer urna. Aenean tristique. Fusce a neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p> </div>]]></item>
+	</group>
+	
+	<group name="Blockquotes" type="html">
+		<item name="blockquote1"><![CDATA[<blockquote><div class="gkBlockquote1"><div>Your quoted text goes here!</div></div></blockquote>]]></item>
+		<item name="blockquote2"><![CDATA[<blockquote><div class="gkBlockquote2"><div>Your quoted text goes here!</div></div></blockquote>]]></item>
+		<item name="blockquote3"><![CDATA[<blockquote><div class="gkBlockquote3"><div>Your quoted text goes here!</div></div></blockquote>]]></item>
+		<item name="blockquote4"><![CDATA[<blockquote><div class="gkBlockquote4"><div>Your quoted text goes here!</div></div></blockquote>]]></item>
+	</group>
+	
+	<group name="Floated blocks" type="html">
+		<item name="blockTextLeft"><![CDATA[<span class="gkBlockTextLeft">Block of text</span>]]></item>
+		<item name="blockTextRight"><![CDATA[<span class="gkBlockTextRight">Block of text</span>]]></item>
+		<item name="blockTextCenter"><![CDATA[<span class="gkBlockTextCenter">Block of text</span>]]></item>
+	</group>
+	
+	<group name="Social icons" type="html">
+		<item name="gkFB"><![CDATA[<a class="gkFb" href="#">Facebook</a>]]></item> 
+		<item name="gkTwitter"><![CDATA[<a class="gkTwitter" href="#">Twitter</a>]]></item> 
+		<item name="gkPlus"><![CDATA[<a class="gkGplus" href="#">Google+</a>]]></item> 
+		<item name="gkRss"><![CDATA[<a class="gkRss" href="#">RSS</a>]]></item>
+	</group>
+</gktypography>	
