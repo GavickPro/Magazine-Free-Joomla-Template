@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
 
 body {
   padding:50px;
-  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:14px/1.5 "Raleway", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
 }
@@ -96,8 +96,7 @@ img {
 }
 
 header {
-  width:270px;
-  float:left;
+  width:100%;
   position:fixed;
 }
 
@@ -160,8 +159,8 @@ header ul a strong {
 }
 
 section {
-  width:500px;
-  float:right;
+  width:100%
+
   padding-bottom:50px;
 }
 
@@ -177,9 +176,7 @@ hr {
 }
 
 footer {
-  width:270px;
-  float:left;
-  position:fixed;
+  width:100%;
   bottom:50px;
 }
 
