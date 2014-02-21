@@ -121,7 +121,7 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
                             $v->flink = 'index.php?Itemid=' . $v->gkparams->get('aliasoptions');
                             break;
                         default:
-                            $router = JSite::getRouter();
+                            $router = JApplication::getRouter();
                             ($router->getMode() == JROUTER_MODE_SEF) ? $v->flink = 'index.php?Itemid=' . $v->id : $v->flink .= '&Itemid=' . $v->id;
                             break;
                     }
@@ -185,7 +185,7 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
             
             $title = str_replace(array('%open%', '%close%'), array('[', ']'), $title);
             $desc = str_replace(array('%open%', '%close%'), array('[', ']'), $desc);
-            $result = new JParameter('');
+            $result = new JRegistry('');
             $result->set('title', trim($title));
             $result->set('desc', trim($desc));
             
@@ -267,7 +267,7 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
 			$query->where('m.id = '.$id);
 			
 			$date = JFactory::getDate();
-			$now = $date->toMySQL();
+			$now = $date->toSql();
 			$nullDate = $db->getNullDate();
 			$query->where('(m.publish_up = '.$db->Quote($nullDate).' OR m.publish_up <= '.$db->Quote($now).')');
 			$query->where('(m.publish_down = '.$db->Quote($nullDate).' OR m.publish_down >= '.$db->Quote($now).')');
@@ -349,7 +349,7 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
 			}
 
             if ($tmp->type == 'menulink') {
-                $menu = JSite::getMenu();
+                $menu = JFactory::getApplication()->getMenu();
                 $alias_item = clone ($menu->getItem($tmp->query['Itemid']));
                 if(!$alias_item) return false;
                 else $tmp->url = $alias_item->link;

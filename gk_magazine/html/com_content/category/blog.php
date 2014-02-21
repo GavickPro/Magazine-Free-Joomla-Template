@@ -4,7 +4,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
-
+JHtml::_('behavior.caption'); 
 ?>
 <section class="blog<?php echo $this->pageclass_sfx;?>">
 	<?php 
@@ -56,15 +56,20 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 			<?php endif; ?>
 		</div>
 		<?php endif; ?>
-		
-		<?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
-			<?php if ($this->params->get('show_no_articles', 1)) : ?>
-				<p><?php echo JText::_('COM_CONTENT_NO_ARTICLES'); ?></p>
-			<?php endif; ?>
-		<?php endif; ?>
 	</header>
 	<?php endif; ?>
-
+	
+	<?php if ($this->params->get('show_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
+          <?php $this->category->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+          <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
+     <?php endif; ?>
+	
+	<?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
+          <?php if ($this->params->get('show_no_articles', 1)) : ?>
+               <p><?php echo JText::_('COM_CONTENT_NO_ARTICLES'); ?></p>
+          <?php endif; ?>
+    <?php endif; ?>
+	
 	<?php $leadingcount=0 ; ?>
 	<?php if (!empty($this->lead_items)) : ?>
 	<div class="leading">
@@ -113,11 +118,9 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 	<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
 	<div class="children">
-		
 		<?php if ($this->params->get('show_category_heading_title_text', 1) == 1) : ?>
-		<h3><?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?></h3>
-		<?php endif; ?>
-		
+	          <h3> <?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?> </h3>
+	     <?php endif; ?>      
 		<?php echo $this->loadTemplate('children'); ?>
 	</div>
 	<?php endif; ?>

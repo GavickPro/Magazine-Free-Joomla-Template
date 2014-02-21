@@ -2,8 +2,11 @@
 <gktypography>
 	<group name="Warnings" type="html">
 		<item name="info1"><![CDATA[<p class="gkInfo1">Your info message goes here!</p>]]></item>
+		<item name="info2"><![CDATA[<p class="gkInfo2">Your info message goes here!</p>]]></item>
 		<item name="tips1"><![CDATA[<p class="gkTips1">Your info message goes here!</p>]]></item>
+		<item name="tips2"><![CDATA[<p class="gkTips2">Your info message goes here!</p>]]></item>
 		<item name="warning1"><![CDATA[<p class="gkWarning1">Your info message goes here!</p>]]></item>
+		<item name="warning2"><![CDATA[<p class="gkWarning2">Your info message goes here!</p>]]></item>
 	</group>
 	
 	<group name="Headers" type="html">
@@ -60,12 +63,19 @@
 		<item name="bullet4"><![CDATA[<ul class="gkBullet4"><li>Element</li></ul>]]></item>
 	</group>
 	
-	<group name="Numblocks" type="html">
-		<item name="num-1"><![CDATA[<p class="numblocks num-1"><span>here goes a number</span>text of element</p>]]></item>
-		<item name="num-2"><![CDATA[<p class="numblocks num-1"><span>here goes a number</span>text of element</p>]]></item>
-		<item name="num-3"><![CDATA[<p class="numblocks num-1"><span>here goes a number</span>text of element</p>]]></item>
+	<group name="Ordered lists" type="html">
+		<item name="roman"><![CDATA[<ol class="gkRoman"><li>Element</li></ol>]]></item>
+		<item name="dec"><![CDATA[<ol class="gkDec"><li>Element</li></ol>]]></item>
+		<item name="alpha"><![CDATA[<ol class="gkAlpha"><li>Element</li></ol>]]></item>
+		<item name="decimalLeadingZero"><![CDATA[<ol class="gkDecimalLeadingZero"><li>Element</li></ol>]]></item>
 	</group>
-
+	
+	<group name="Numblocks" type="html">
+		<item name="number1"><![CDATA[<p class="gkNumber1"><span>here goes a number</span>text of element</p>]]></item>
+		<item name="number2"><![CDATA[<p class="gkNumber2"><span>here goes a number</span>text of element</p>]]></item>
+		<item name="number3"><![CDATA[<p class="gkNumber2"><span>here goes a number</span>text of element</p>]]></item>
+	</group>
+	
 	<group name="Blocks" type="html">
 		<item name="block1"><![CDATA[<div class="gkblock-1">content here...</div>]]></item>
 		<item name="block2"><![CDATA[<div class="gkblock-2">content here...</div>]]></item>

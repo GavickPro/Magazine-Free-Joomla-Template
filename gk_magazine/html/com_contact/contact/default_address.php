@@ -102,7 +102,7 @@ defined('_JEXEC') or die;
 		</span>
 		<span class="contact-webpage">
 			<a href="<?php echo $this->contact->webpage; ?>" target="_blank">
-			<?php echo $this->contact->webpage; ?></a>
+			<?php echo JStringPunycode::urlToUTF8($this->contact->webpage); ?></a> 
 		</span>
 	</p>
 <?php endif; ?>

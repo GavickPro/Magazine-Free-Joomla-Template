@@ -2,9 +2,9 @@
 
 // no direct access
 defined('_JEXEC') or die;
-
+JHtml::_('behavior.caption'); 
 JHtml::addIncludePath(JPATH_COMPONENT .'/helpers');
-
+JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/route.php');
 // Create shortcuts to some parameters.
 $params = $this->item->params;
 $images = json_decode($this->item->images);
@@ -269,21 +269,31 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 			</p>
 		<?php endif; ?>
 	<?php endif; ?>
+	
+	<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+	    <div class="tags"><span class="tags-label"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER'); ?></span>
+	        
+	    <?php foreach ($this->item->tags->itemTags as $tag) : ?>
+	         <a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->tag_id . ':' . $tag->alias)) ?>"><?php echo $tag->title; ?><span>,</span></a>
+	    <?php endforeach; ?>
+	    </div>
+	<?php endif; ?>
+	
 </div>
 	<?php if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item->paginationposition AND $this->item->paginationrelative): ?>
 		<?php echo $this->item->pagination;?>
 	<?php endif; ?>
 	
 	<gavern:social><div id="gkSocialAPI"></gavern:social>
-    <gavern:social>
-       <g:plusone GK_GOOGLE_PLUS_SETTINGS callback="<?php echo $cur_url; ?>"></g:plusone>
-    </gavern:social>
-    <gavern:social>
-       <g:plus action="share" GK_GOOGLE_PLUS_SHARE_SETTINGS href="<?php echo $cur_url; ?>"></g:plus>
-    </gavern:social>
-    <gavern:social><a href="http://twitter.com/share" class="twitter-share-button" data-text="<?php echo $this->item->title; ?>" data-url="<?php $cur_url; ?>"  gk_tweet_btn_settings>Tweet</a></gavern:social>
-    <gavern:social><a href="http://pinterest.com/pin/create/button/?url=<?php echo $cur_url; ?>&amp;media=<?php echo $pin_image; ?>&amp;description=<?php echo str_replace(" ", "%20", $this->item->title); ?>" class="pin-it-button" count-layout="GK_PINTEREST_SETTINGS"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="<?php echo JText::_('TPL_GK_LANG_PINIT_TITLE'); ?>" /></a></gavern:social>
-    <gavern:social><fb:like href="<?php echo $cur_url; ?>" GK_FB_LIKE_SETTINGS></fb:like></gavern:social>
-  <gavern:social></div></gavern:social>
+        <gavern:social>
+           <g:plusone GK_GOOGLE_PLUS_SETTINGS callback="<?php echo $cur_url; ?>"></g:plusone>
+        </gavern:social>
+        <gavern:social>
+           <g:plus action="share" GK_GOOGLE_PLUS_SHARE_SETTINGS href="<?php echo $cur_url; ?>"></g:plus>
+        </gavern:social>
+	    <gavern:social><a href="http://twitter.com/share" class="twitter-share-button" data-text="<?php echo $this->item->title; ?>" data-url="<?php $cur_url; ?>"  gk_tweet_btn_settings>Tweet</a></gavern:social>
+		<gavern:social><a href="http://pinterest.com/pin/create/button/?url=<?php echo $cur_url; ?>&amp;media=<?php echo $pin_image; ?>&amp;description=<?php echo str_replace(" ", "%20", $this->item->title); ?>" class="pin-it-button" count-layout="GK_PINTEREST_SETTINGS"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="<?php echo JText::_('TPL_GK_LANG_PINIT_TITLE'); ?>" /></a></gavern:social>
+		<gavern:social><fb:like href="<?php echo $cur_url; ?>" GK_FB_LIKE_SETTINGS></fb:like></gavern:social>
+	 <gavern:social></div></gavern:social>
 <?php echo $this->item->event->afterDisplayContent; ?>
 </article>

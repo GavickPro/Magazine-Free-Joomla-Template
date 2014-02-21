@@ -54,6 +54,11 @@ defined('_JEXEC') or die;
 
 	<?php echo $this->loadTemplate('items'); ?>
 
+	<?php if ($this->params->get('show_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
+          <?php $this->category->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+          <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
+     <?php endif; ?>
+	
 	<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
 	<div class="children">
 		<h3><?php echo JText::_('JGLOBAL_SUBCATEGORIES') ; ?></h3>

@@ -978,7 +978,6 @@ article header .itemRatingBlock > div {
 	list-style-position:inside;
 }
 .itemAuthorContent { clear: both; }
-
 .itemLinks .itemTagsBlock, 
 .itemLinks .itemSocialSharing { overflow: visible; }
 div.itemSocialSharing { overflow: visible!important }

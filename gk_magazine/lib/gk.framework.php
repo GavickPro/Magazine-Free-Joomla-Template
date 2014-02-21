@@ -13,6 +13,11 @@
 // No direct access.
 defined('_JEXEC') or die;
 
+if(!defined('DS')){
+   define('DS',DIRECTORY_SEPARATOR);
+}
+
+
 require_once(dirname(__file__) . DS . 'framework' . DS . 'gk.parser.php');
 require_once(dirname(__file__) . DS . 'framework' . DS . 'gk.browser.php');
 
@@ -29,7 +34,7 @@ require_once(dirname(__file__) . DS . 'framework' . DS . 'helper.utilities.php')
 */
 class GKTemplate {
     // template name
-    public $name = 'magazine_j25';
+    public $name = 'magazine_j30';
     // access to the standard Joomla! template API
     public $API;
     // access to the helper classes

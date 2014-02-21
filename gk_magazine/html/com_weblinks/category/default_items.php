@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 $params = &$this->item->params;
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
-JHtml::core();
+JHtml::_('behavior.framework');
 
 // Get the user object.
 $user = JFactory::getUser();
@@ -130,6 +130,14 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</td>
 		<?php endif; ?>
 	</tr>
+	<?php $tagsData = $item->tags->getItemTags('com_weblinks.weblink', $item->id); ?>
+	<?php if ($this->params->get('show_tags', 1) && count($item->tags->itemTags) != 0) : ?>
+          <tr class="tags"><td colspan="2">
+          <?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+          <?php echo $this->item->tagLayout->render($tagsData); ?></td>
+          </tr>
+     <?php endif; ?>
+	
 	<?php endforeach; ?>
 </tbody>
 </table>

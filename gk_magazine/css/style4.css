@@ -142,18 +142,18 @@ article header h2 a:hover {
 article header li a:hover {
 	color: #909090;
 }
-.tip-title {
+.tooltip-inner strong {
 	background: #909090;
 }
-#system-message dd {
+#system-message p {
 	background-color: #e8932b;
 	background-image: url('../images/style4/typography/info.png');
 }
-#system-message dd.error {
+#system-message div.alert-error p {
 	background-color: #FE724D;
 	background-image: url('../images/style4/typography/warning.png');
 }
-#system-message dd.notice {
+#system-message div.alert-notice p {
 	background-color: #909090;
 	background-image: url('../images/style4/typography/tips.png');
 }
@@ -275,7 +275,8 @@ h2 > sup {
 span#formLog {
 	background: #909090;
 }
-.k2TagCloudBlock a:hover {
+.k2TagCloudBlock a:hover,
+div.tags.tagcloud a:hover {
 	background: #909090;
 }
 .itemAttachmentsBlock {
@@ -288,11 +289,13 @@ span#formLog {
 #itemListLinks li {
 	background-image: url('../images/style4/typography/bullet-square2.png');
 }
-.k2TagCloudBlock a {
+.k2TagCloudBlock a,
+div.tags.tagcloud a {
 	background: #e8932b;
 	border-color: #e8932b;
 }
-.k2TagCloudBlock a:hover {
+.k2TagCloudBlock a:hover,
+div.tags.tagcloud a:hover {
 	background: #909090;
 	border-color: #909090;
 }

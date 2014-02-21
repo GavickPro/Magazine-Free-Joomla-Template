@@ -7,7 +7,7 @@
 # Website:  http://www.gavick.com
 # Support:  support@gavick.com
  */
- 
+
 @charset "UTF-8";
  
 @font-face {
@@ -104,6 +104,7 @@
  	transition: all .15s ease-out;
  	width: 52px;
 }
+ 
 /*
  * News Show Pro GK4
  */
@@ -394,10 +395,6 @@ a.gkResponsive {
 .color1 .nspPagination li:hover,
 .color1 .nspPagination li.active { background: #fff }
 
-/* Suffix headlines */
-.headlines .nspArt {
-	position: relative;
-}
 /* Suffix gkAdvert */
 .gkAdvert > .content {
 	background: #91c46c;
@@ -431,6 +428,12 @@ a.gkResponsive {
 	font-weight: 500;
 	line-height: 0.7;
 }
+
+/* Suffix headlines */
+.headlines .nspArt {
+	position: relative;
+}
+
 .headlines .nspNewWrap {
 	background: #4d90fe url('../images/big_arrow.png') no-repeat 0 0;
 	-webkit-box-sizing: border-box;

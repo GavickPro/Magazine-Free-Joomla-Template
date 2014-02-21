@@ -30,21 +30,24 @@ $tpl_page_suffix = $this->page_suffix != '' ? ' class="'.$this->page_suffix.'"' 
 <!DOCTYPE html>
 <html lang="<?php echo $this->APITPL->language; ?>" <?php echo $tpl_page_suffix; ?>>
 <head>
-	<?php $this->layout->addTouchIcon(); ?>
-	<?php if(
-	            $this->browser->get('browser') == 'ie6' || 
-	            $this->browser->get('browser') == 'ie7' || 
-	            $this->browser->get('browser') == 'ie8' || 
-	            $this->browser->get('browser') == 'ie9'
-	        ) : ?>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<?php if($this->browser->get('browser') == 'ie8' || $this->browser->get('browser') == 'ie7' || $this->browser->get('browser') == 'ie6') : ?>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<?php endif; ?>
+    <?php if($this->API->get("chrome_frame_support", '0') == '1' && ($this->browser->get('browser') == 'ie8' || $this->browser->get('browser') == 'ie7' || $this->browser->get('browser') == 'ie6')) : ?>
+    <?php if(
+                $this->browser->get('browser') == 'ie6' || 
+                $this->browser->get('browser') == 'ie7' || 
+                $this->browser->get('browser') == 'ie8' || 
+                $this->browser->get('browser') == 'ie9'
+            ) : ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <?php endif; ?> 
+    <?php endif; ?>
     <?php if($this->API->get('rwd', 1)) : ?>
-    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
-	<?php else : ?>
-		<meta name="viewport" content="width=<?php echo $this->API->get('template_width', 1020)+80 ?>">
-	<?php endif; ?>
-    <jdoc:include type="head" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.0">
+    <?php else : ?>
+      <meta name="viewport" content="width=<?php echo $this->API->get('template_width', 1020)+80 ?>">
+    <?php endif; ?><jdoc:include type="head" />
     <?php $this->layout->loadBlock('head'); ?>
 	<?php $this->layout->loadBlock('cookielaw'); ?>
 </head>

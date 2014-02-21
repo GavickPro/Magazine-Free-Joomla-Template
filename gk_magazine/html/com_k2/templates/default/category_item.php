@@ -72,12 +72,12 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 						<?php endif; ?>
 						
 						<?php if($this->item->params->get('catItemDateCreated')): ?>
-						 <!-- Date created -->
-						 <li class="itemDate">
-						    <time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
-						    <?php echo JHTML::_('date', $this->item->created , JText::_('K2_DATE_FORMAT_LC2')); ?>
-						 	</time>
-						 </li>
+						<!-- Date created -->
+						<li class="itemDate">
+						   <time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
+						   <?php echo JHTML::_('date', $this->item->created , JText::_('K2_DATE_FORMAT_LC2')); ?>
+						</time>
+						</li>
 						<?php endif; ?>
 						
 						<?php if($this->item->params->get('catItemDateModified') && $this->item->created != $this->item->modified): ?>

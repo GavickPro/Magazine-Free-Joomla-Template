@@ -30,7 +30,7 @@ $view = JRequest::getCmd('view', '');
 	  	function updateButton(response) {
 	    	var button = document.getElementById('fb-auth');
 		
-			iif(button) {   
+			if(button) {   
 			    if (response.authResponse) {
 			    // user is already logged in and connected
 			    button.onclick = function() {

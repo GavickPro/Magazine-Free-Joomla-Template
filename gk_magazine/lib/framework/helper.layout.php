@@ -16,9 +16,6 @@ class GKTemplateLayout {
     public $mootools;
     // access to the module styles
     public $module_styles;
-    // frontpage detection variables
-    public $globalMenuActive = null;
-    public $globalMenuLanguage = null;
     //
     function __construct($parent) {
     	$this->parent = $parent;
@@ -77,8 +74,8 @@ class GKTemplateLayout {
 		$tablet_width = $this->API->get('tablet_width', 1030); // get the tablet width
 		$tablet_small_width = $this->API->get('tablet_small_width', 820); // get the small tablet width
 		$mobile_width = $this->API->get('mobile_width', 580); // get the mobile width
+		// set media query for small desktops
 		if($this->API->get('rwd', 1)) {
-			// set media query for small desktops
 			echo '<link rel="stylesheet" href="'.($this->API->URLtemplate()).'/css/small.desktop.css" media="(max-width: '.$template_width.'px)" />' . "\n";	
 			// set media query for the tablet.css
 			echo '<link rel="stylesheet" href="'.($this->API->URLtemplate()).'/css/tablet.css" media="(max-width: '.$tablet_width.'px)" />' . "\n";
@@ -98,7 +95,7 @@ class GKTemplateLayout {
 	    	.demo-typo-col3,
 	    	.demo-typo-col4 {width: 100%; }
 	    	}');
-	    }
+    	}
     	// set CSS code for the messages
     	//$this->API->addCSSRule('#system-message-container { margin: 0 -'.$body_padding.'px; }');
     }
@@ -150,41 +147,18 @@ class GKTemplateLayout {
     
     // function to check if the page is frontpage
     function isFrontpage() {
-        if($this->globalMenuActive == null) {
-             // get all known languages
-             $languages     = JLanguage::getKnownLanguages();
-             $menu = JSite::getMenu();
-            
-             foreach($languages as $lang){
-                $menuActive = $menu->getActive();
-                $menuLanguage = $menu->getDefault($lang['tag']);
-                if($menuActive == $menuLanguage) {
-                          $this->globalMenuActive = $menuActive;
-                          $this->globalMenuLanguage = $menuLanguage;
-                          return true;
-                }
-             } 
+        // get all known languages
+        $languages	= JLanguage::getKnownLanguages();
+        $menu = JSite::getMenu();
+        
+        foreach($languages as $lang){
+            if ($menu->getActive() == $menu->getDefault($lang['tag'])) {
+            	return true;
+            }
         }
-       
-        if($this->globalMenuActive == $this->globalMenuLanguage) {
-             return true;
-        }
-           
-        return false;   
+    	   
+        return false;    
     }
-    
-    public function addTouchIcon() {
-          $touch_image = $this->API->get('touch_image', '');
-         
-          if($touch_image == '') {
-               $touch_image = $this->API->URLtemplate() . '/images/touch-device.png';
-          } else {
-               $touch_image = $this->API->URLbase() . $touch_image;
-          }
-          $doc = JFactory::getDocument();
-          $doc->addCustomTag('<link rel="apple-touch-icon" href="'.$touch_image.'">');
-          $doc->addCustomTag('<link rel="apple-touch-icon-precompose" href="'.$touch_image.'">');
-     }
 
 	public function addTemplateFavicon() {
 		$favicon_image = $this->API->get('favicon_image', '');

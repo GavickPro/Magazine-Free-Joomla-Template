@@ -2,6 +2,10 @@
 
 defined('JPATH_BASE') or die;
 
+if(!defined('DS')){
+   define('DS',DIRECTORY_SEPARATOR);
+}
+
 jimport('joomla.form.formfield');
 
 class JFormFieldAsset extends JFormField {

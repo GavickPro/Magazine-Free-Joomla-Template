@@ -10,8 +10,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-JHtml::_('behavior.tooltip');
-JHtml::core();
+JHtml::_('behavior.framework');
 
 // Create some shortcuts.
 $params		= &$this->item->params;
@@ -96,7 +95,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<?php endif; ?>
 					<?php if (in_array($article->access, $this->user->getAuthorisedViewLevels())) : ?>
 						<td class="list-title">
-							<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid, $article->language)); ?>">  
+							<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid)); ?>">
 								<?php echo $this->escape($article->title); ?></a>
 						</td>
 	

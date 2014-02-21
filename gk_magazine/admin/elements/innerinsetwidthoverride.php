@@ -19,8 +19,8 @@ class JFormFieldInnerInsetWidthOverride extends JFormField
 		$html .= '<div class="label">' . JText::_('TPL_GK_LANG_ADD_RULE_ITEMID_OPTION') . '</div>';
 		$html .= '<input type="text" id="inner_inset_width_for_pages_input" />';
 		$html .= '<div class="label">' . JText::_('TPL_GK_LANG_ADD_RULE_WIDTH') . '</div>';
-		$html .= '<input type="text" value="" id="inner_inset_width_for_pages_select" /><span class="unit">%</span>';
-		$html .= '<input type="button" value="'.JText::_('TPL_GK_LANG_ADD_RULE').'" id="inner_inset_width_for_pages_add_btn" />';
+		$html .= '<div class="input-prepend"><input type="text" value="" id="inner_inset_width_for_pages_select" /><span class="add-on">%</span>';
+		$html .= '<input type="button" class="btn" value="'.JText::_('TPL_GK_LANG_ADD_RULE').'" id="inner_inset_width_for_pages_add_btn" /></div>';
 		$html .= '<textarea name="'.$this->name.'" id="'.$this->id.'">' . htmlspecialchars($this->value, ENT_COMPAT, 'UTF-8') . '</textarea>';
 		$html .= '<div id="inner_inset_width_for_pages_rules"></div>';
 		$html .= '</div>';

@@ -83,7 +83,7 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
                             $v->flink = 'index.php?Itemid=' . $v->params->get('aliasoptions');
                             break;
                         default:
-                            $router = JSite::getRouter();
+                            $router = JApplication::getRouter();;
                             if ($router->getMode() == JROUTER_MODE_SEF) {
                                 $v->flink = 'index.php?Itemid=' . $v->id;
                             } else {
@@ -132,7 +132,7 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
             $txt = $txt_margin . $txt;
 
             if ($tmp->type == 'menulink') {
-                $menu = &JSite::getMenu();
+                $menu = JFactory::getApplication()->getMenu();
                 $alias_item = clone ($menu->getItem($tmp->query['Itemid']));
                 if (!$alias_item) return false;
                 else $tmp->url = $alias_item->link;

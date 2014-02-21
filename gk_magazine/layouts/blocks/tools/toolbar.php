@@ -72,4 +72,4 @@ if($this->API->get('mail_url', '')) {
 	
 </aside>
 
-<a href="#gkPageTop" class="gk-icon-top" id="gkBackToTop"><!--<?php echo JText::_('TPL_GK_LANG_BACK_TO_TOP'); ?>--></a>
+<a href="#gkPageTop" class="gk-icon-top" id="gkBackToTop" title="<?php echo JText::_('TPL_GK_LANG_BACK_TO_TOP'); ?>"></a>

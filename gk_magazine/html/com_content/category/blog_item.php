@@ -9,7 +9,7 @@ $images = json_decode($this->item->images);
 $canEdit	= $this->item->params->get('access-edit');
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
-JHtml::core();
+JHtml::_('behavior.framework');
 
 ?>
 
@@ -89,7 +89,7 @@ JHtml::core();
 		<?php if ($params->get('show_title')) : ?>
 		<h1>
 			<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
-				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">
+				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
 				<?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
@@ -124,13 +124,13 @@ JHtml::core();
 	
 	<?php if ($params->get('show_readmore') && $this->item->readmore) :
 		if ($params->get('access-view')) :
-			$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
+			$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
 		else :
 			$menu = JFactory::getApplication()->getMenu();
 			$active = $menu->getActive();
 			$itemId = $active->id;
 			$link1 = JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
-			$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
+			$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
 			$link = new JURI($link1);
 			$link->setVar('return', base64_encode($returnURL));
 		endif;

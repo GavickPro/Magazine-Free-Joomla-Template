@@ -1,9 +1,16 @@
 <?php
 defined('JPATH_BASE') or die;
 jimport('joomla.form.formfield');
+
+if(!defined('DS')){ define('DS',DIRECTORY_SEPARATOR); }
+
 class JFormFieldConfigManager extends JFormField {
 	protected $type = 'ConfigManager';
 	protected function getInput() {
+		if(!defined('DS')) {
+			define('DS', DIRECTORY_SEPARATOR);
+		}
+	
 		jimport('joomla.filesystem.file');
 		// necessary Joomla! classes
 		$uri = JURI::getInstance();
@@ -13,6 +20,8 @@ class JFormFieldConfigManager extends JFormField {
 		$task = $uri->getVar('gk_template_task', 'none');
 		$file = $uri->getVar('gk_template_file', 'none');
 		$base_path = str_replace('admin'.DS.'elements', '', dirname(__FILE__)).'config'.DS;
+		// message
+		$msg = '';
 		// helping variables
 		$redirectUrl = $uri->root() . 'administrator/index.php?option=com_templates&view=style&layout=edit&id=' . $tpl_id;
 		// if the URL contains proper variables
@@ -85,13 +94,16 @@ class JFormFieldConfigManager extends JFormField {
 			} else if($task == 'delete') {
 				// Check if file exists before deleting
 				if(JFile::exists($base_path . $file)) {
-					if(JFile::delete($base_path . $file)) {
-						$msg = '<div class="gk_ok">'. $file . ' ' . JText::_('TPL_GK_LANG_CONFIG_FILE_DELETED_AS') .'</div>';
+					if(JFile::delete($base_path . $file)) {						
+						$app = JFactory::getApplication();
+						$app->redirect($redirectUrl, $file . ' ' . JText::_('TPL_GK_LANG_CONFIG_FILE_DELETED_AS'), 'message');
 					} else {
-						$msg = '<div class="gk_error">'. $file . ' ' . JText::_('TPL_GK_LANG_CONFIG_FILE_WASNT_DELETED_PLEASE_CHECK_PERM') .'</div>';
+						$app = JFactory::getApplication();
+						$app->redirect($redirectUrl, $file . ' ' . JText::_('TPL_GK_LANG_CONFIG_FILE_WASNT_DELETED_PLEASE_CHECK_PERM'), 'error');
 					}
 				} else {
-					$msg = '<div class="gk_error">'. $file . ' ' . JText::_('TPL_GK_LANG_CONFIG_FILE_WASNT_DELETED_PLEASE_CHECK_FILE') .'</div>';
+					$app = JFactory::getApplication();
+					$app->redirect($redirectUrl, $file . ' ' . JText::_('TPL_GK_LANG_CONFIG_FILE_WASNT_DELETED_PLEASE_CHECK_FILE'), 'error');
 				}	
 			}
 		}
@@ -99,22 +111,23 @@ class JFormFieldConfigManager extends JFormField {
 		$options = (array) $this->getOptions();
 		$file_select = JHtml::_('select.genericlist', $options, 'name', '', 'value', 'text', 'default', 'config_manager_load_filename');
 		$file_delete = JHtml::_('select.genericlist', $options, 'name', '', 'value', 'text', 'default', 'config_manager_delete_filename');
-     // return the standard formfield output
 		// return the standard formfield output
 		$html = '';
 		$html .= '<div id="gk-social"><span>Follow us on the social media: </span> <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fgavickpro&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe> <a href="https://twitter.com/gavickpro" class="twitter-follow-button" data-show-count="false">Follow @gavickpro</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
 		<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="150" data-href="https://plus.google.com/+gavickpro/"></div><script type="text/javascript">(function() { var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true; po.src = \'https://apis.google.com/js/platform.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);})();</script></div>';
-		$html .= '<div id="config_manager_form">';
-		$html .= '<div><label>'.JText::_('TPL_GK_LANG_CONFIG_LOAD').'</label>'.$file_select.'<button id="config_manager_load">'.JText::_('TPL_GK_LANG_CONFIG_LOAD_BTN').'</button></div>';
-		$html .= '<div><label>'.JText::_('TPL_GK_LANG_CONFIG_SAVE').'</label><input type="text" id="config_manager_save_filename" /><span>.json</span><button id="config_manager_save">'.JText::_('TPL_GK_LANG_CONFIG_SAVE_BTN').'</button></div>';
-		$html .= '<div><label>'.JText::_('TPL_GK_LANG_CONFIG_DELETE').'</label>'.$file_delete.'<button id="config_manager_delete">'.JText::_('TPL_GK_LANG_CONFIG_DELETE_BTN').'</button></div>';
-		$html .= '<div><label>'.JText::_('TPL_GK_LANG_CONFIG_DIRECTORY').'</label><span>'.$base_path.'</span></div>';
+		$html .= '<div id="config_manager_form" class="well">';
+		$html .= '<div><p><label>'.JText::_('TPL_GK_LANG_CONFIG_LOAD').'</label>'.$file_select.'<button id="config_manager_load" class="btn"><i class="icon-download"></i> '.JText::_('TPL_GK_LANG_CONFIG_LOAD_BTN').'</button></p></div>';
+		$html .= '<div class="input-append"><p><label>'.JText::_('TPL_GK_LANG_CONFIG_SAVE').'</label><input type="text" id="config_manager_save_filename" class="input-medium" placeholder="'.JText::_('TPL_GK_LANG_CONFIG_YOUR_FILENAME').'" /><span class="add-on">.json</span><button id="config_manager_save" class="btn"><i class="icon-upload"></i> '.JText::_('TPL_GK_LANG_CONFIG_SAVE_BTN').'</button></p></div>';
+		$html .= '<div><p><label>'.JText::_('TPL_GK_LANG_CONFIG_DELETE').'</label>'.$file_delete.'<button id="config_manager_delete" class="btn"><i class="icon-remove"></i> '.JText::_('TPL_GK_LANG_CONFIG_DELETE_BTN').'</button></p></div>';
+		$html .= '<div><p><span class="label label-warning">'.JText::_('TPL_GK_LANG_CONFIG_DIRECTORY').'</span> <span>'.str_replace(DS, ' ' . DS . ' ', $base_path).'</span></p></div>';
 		$html .= '</div>';
 		// finish the output
 		return $html;
 	}
 	protected function getOptions() {
+		jimport('joomla.filesystem.folder');
+	
 		$options = array();
 		$path = (string) $this->element['directory'];
 		if (!is_dir($path)) $path = JPATH_ROOT.'/'.$path;

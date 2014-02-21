@@ -7,6 +7,7 @@ defined('_JEXEC') or die;
 $params = &$this->item->params;
 $images = json_decode($this->item->images);
 $canEdit	= $this->item->params->get('access-edit');
+JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/route.php');
 ?>
 
 <article<?php if ($this->item->state == 0) : ?> class="system-unpublished"<?php endif; ?>>	
@@ -16,7 +17,7 @@ $canEdit	= $this->item->params->get('access-edit');
 		<?php if ($params->get('show_title')) : ?>
 		<h1>
 			<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
-				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">
+				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
 				<?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
@@ -49,15 +50,24 @@ $canEdit	= $this->item->params->get('access-edit');
 
 	<?php echo $this->item->introtext; ?>
 	
+	<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+	    <div class="tags"><span class="tags-label"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER'); ?></span>
+	        
+	    <?php foreach ($this->item->tags->itemTags as $tag) : ?>
+	         <a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->tag_id . ':' . $tag->alias)) ?>"><?php echo $tag->title; ?><span>,</span></a>
+	    <?php endforeach; ?>
+	    </div>
+	<?php endif; ?>
+	
 	<?php if ($params->get('show_readmore') && $this->item->readmore) :
 		if ($params->get('access-view')) :
-			$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
+			$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
 		else :
 			$menu = JFactory::getApplication()->getMenu();
 			$active = $menu->getActive();
 			$itemId = $active->id;
 			$link1 = JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
-			$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));    
+			$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
 			$link = new JURI($link1);
 			$link->setVar('return', base64_encode($returnURL));
 		endif;

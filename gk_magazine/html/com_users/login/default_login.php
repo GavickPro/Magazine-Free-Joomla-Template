@@ -43,6 +43,22 @@ JHtml::_('behavior.keepalive');
 				</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
+			
+			<?php $tfa = JPluginHelper::getPlugin('twofactorauth'); ?>
+			<?php if (!is_null($tfa) && $tfa != array()): ?>
+			    <div class="login-fields">
+			         <?php echo $this->form->getField('secretkey')->label; ?>
+			       <?php echo $this->form->getField('secretkey')->input; ?>
+			    </div>
+			<?php endif; ?>
+			
+			<?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
+			<div  class="login-fields">
+			   <label><?php echo JText::_('COM_USERS_LOGIN_REMEMBER_ME') ?></label>
+			    <input id="remember" type="checkbox" name="remember" class="inputbox" value="yes"/>
+			</div>
+			<?php endif; ?>
+			
 			<button type="submit" class="button"><?php echo JText::_('JLOGIN'); ?></button>
 			<gavern:fblogin><span id="fb-auth"><small>fb icon</small><?php echo JText::_('TPL_GK_LANG_FB_LOGIN_TEXT'); ?></span><gavern:fblogin>
 			<input type="hidden" name="return" value="<?php echo base64_encode($this->params->get('login_redirect_url', $this->form->getValue('return'))); ?>" />

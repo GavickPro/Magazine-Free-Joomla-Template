@@ -13,7 +13,11 @@ defined('_JEXEC') or die;
 		<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id));?>">
 			<?php echo $this->escape($item->title); ?>
 		</a>
-
+		
+		<?php if ($this->params->get('show_description_image') && $item->getParams()->get('image')) : ?>
+            <img src="<?php echo $item->getParams()->get('image'); ?>"/>
+        <?php endif; ?>  
+		
 		<?php if ($this->params->get('show_subcat_desc_cat') == 1 && $item->description) : ?>
 		<div>
 			<?php echo JHtml::_('content.prepare', $item->description, '', 'com_content.categories'); ?>
