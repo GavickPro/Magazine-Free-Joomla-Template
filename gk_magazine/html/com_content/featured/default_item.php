@@ -15,10 +15,9 @@ JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/
 	
 	<header>
 		<?php if ($params->get('show_title')) : ?>
-		<h1>
+		<h1 itemprop="name">
 			<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
-				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
-				<?php echo $this->escape($this->item->title); ?></a>
+				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>" itemprop="url"><?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
 			<?php endif; ?>
@@ -73,7 +72,7 @@ JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/
 		endif;
 	?>
 	<p class="readmore">
-		<a href="<?php echo $link; ?>">
+		<a href="<?php echo $link; ?>" itemprop="url">
 			<?php if (!$params->get('access-view')) :
 				echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
 			elseif ($readmore = $this->item->alternative_readmore) :

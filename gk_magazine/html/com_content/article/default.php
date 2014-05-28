@@ -70,7 +70,8 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 	or ($params->get('show_hits')));
 ?>
 
-<article class="item-page<?php echo $this->pageclass_sfx?>">
+<article class="item-page<?php echo $this->pageclass_sfx?>" itemscope itemtype="http://schema.org/Article">
+	<meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />
 	<?php if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item->paginationposition && $this->item->paginationrelative) : ?>
 	<?php echo $this->item->pagination; ?>
 	<?php endif; ?>
@@ -84,19 +85,19 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 		<ul>	
 			<?php if ($params->get('show_publish_date')) : ?>
 			<li class="published">
-				<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, JText::_(DATE_W3C)); ?>">
+				<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, JText::_(DATE_W3C)); ?>"  itemprop="datePublished">
 					<?php echo JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2')); ?>
 				</time>
 			</li>			
 			<?php elseif ($params->get('show_modify_date')) : ?>
 			<li class="modified">
-				<time datetime="<?php echo JHtml::_('date', $this->item->modified, JText::_(DATE_W3C)); ?>">
+				<time datetime="<?php echo JHtml::_('date', $this->item->modified, JText::_(DATE_W3C)); ?>" itemprop="dateModified">
 					<?php echo JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2')); ?>
 				</time>
 			</li>
 			<?php elseif ($params->get('show_create_date')) : ?>
 			<li class="created">
-				<time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
+				<time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>"  itemprop="dateCreated">
 					<?php echo JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2')); ?>
 				</time>
 			</li>
@@ -105,12 +106,12 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 			<?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
 			<li class="parent-category-name">
 				<?php	$title = $this->escape($this->item->parent_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
+				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'" itemprop="genre">'.$title.'</a>';?>
 	
 				<?php if ($params->get('link_parent_category') and $this->item->parent_slug) : ?>
 					<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
 				<?php else : ?>
-					<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
+					<?php echo JText::sprintf('COM_CONTENT_PARENT', '<span itemprop="genre">' . $title . '</span>'); ?>
 				<?php endif; ?>
 			</li>
 			<?php endif; ?>
@@ -118,19 +119,19 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 			<?php if ($params->get('show_category')) : ?>
 			<li class="category-name">
 				<?php $title = $this->escape($this->item->category_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
+				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'" itemprop="genre">'.$title.'</a>';?>
 				<?php if ($params->get('link_category') and $this->item->catslug) : ?>
 					<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
 				<?php else : ?>
-					<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $title); ?>
+					<?php echo JText::sprintf('COM_CONTENT_CATEGORY', '<span itemprop="genre">' . $title . '</span>'); ?>
 				<?php endif; ?>
 			</li>
 			<?php endif; ?>
 
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-			<li class="createdby">
+			<li class="createdby" itemprop="author" itemscope itemtype="http://schema.org/Person">
 				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
-				
+				<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 				<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
 				<?php
 					$needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
@@ -138,7 +139,7 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 					$item = $menu->getItems('link', $needle, true);
 					$cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;
 				?>
-					<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_($cntlink), $author)); ?>
+					<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_($cntlink), $author, array('itemprop' => 'url'))); ?>
 				<?php else: ?>
 					<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
 				<?php endif; ?>
@@ -147,6 +148,7 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 	
 			<?php if ($params->get('show_hits')) : ?>
 			<li class="hits">
+				<meta itemprop="interactionCount" content="UserPageVisits:<?php echo $this->item->hits; ?>" />
 				<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 			</li>
 			<?php endif; ?>
@@ -178,11 +180,9 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 		<?php endif; ?>
 		
 		<?php if ($params->get('show_title')) : ?>
-		<h1>
+		<h1 itemprop="name">
 			<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
-				<a href="<?php echo $this->item->readmore_link; ?>">
-					<?php echo $this->escape($this->item->title); ?>
-				</a>
+				<a href="<?php echo $this->item->readmore_link; ?>" itemprop="url"> <?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
 			<?php endif; ?>
@@ -231,7 +231,9 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 		echo $this->item->pagination;
 	 endif;
 	?>
-	<?php echo $this->item->text; ?>
+	<span itemprop="articleBody">
+		<?php echo $this->item->text; ?>
+	</span>
 	
 	<?php if (isset($urls) AND ((!empty($urls->urls_position)  AND ($urls->urls_position=='1')) OR ( $params->get('urls_position')=='1') )): ?>
 	<?php echo $this->loadTemplate('links'); ?>

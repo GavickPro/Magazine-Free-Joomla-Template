@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
-<div class="contact<?php echo $this->pageclass_sfx?>">
+<div class="contact<?php echo $this->pageclass_sfx?>" itemscope itemtype="http://schema.org/Person">
 <?php if ($this->params->get('show_page_heading', 1)) : ?>
 <h1>
 	<?php echo $this->escape($this->params->get('page_heading')); ?>
@@ -18,7 +18,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 <?php endif; ?>
 	<?php if ($this->contact->name && $this->params->get('show_name')) : ?>
 		<h2>
-			<span class="contact-name"><?php echo $this->contact->name; ?></span>
+			<span class="contact-name" itemprop="name"><?php echo $this->contact->name; ?></span>
 		</h2>
 	<?php endif;  ?>
 	<?php if ($this->params->get('show_contact_category') == 'show_no_link') : ?>
@@ -54,12 +54,12 @@ $cparams = JComponentHelper::getParams ('com_media');
 	<?php endif; ?>
 	<?php if ($this->contact->image && $this->params->get('show_image')) : ?>
 		<div class="contact-image">
-			<?php echo JHtml::_('image', $this->contact->image, JText::_('COM_CONTACT_IMAGE_DETAILS'), array('align' => 'middle')); ?>
+			<?php echo JHtml::_('image', $this->contact->image, JText::_('COM_CONTACT_IMAGE_DETAILS'), array('align' => 'middle', 'itemprop' => 'image')); ?>
 		</div>
 	<?php endif; ?>
 
 	<?php if ($this->contact->con_position && $this->params->get('show_position')) : ?>
-		<p class="contact-position"><?php echo $this->contact->con_position; ?></p>
+		<p class="contact-position" itemprop="jobTitle"><?php echo $this->contact->con_position; ?></p>
 	<?php endif; ?>
 
 	<?php echo $this->loadTemplate('address'); ?>

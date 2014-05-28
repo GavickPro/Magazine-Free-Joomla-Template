@@ -5,7 +5,6 @@ defined('_JEXEC') or die;
 
 $option = JRequest::getCmd('option', '');
 $view = JRequest::getCmd('view', '');
-
 ?>
 
 <?php if($this->API->get('fb_login', '0') == 1 || ($this->API->get('fb_like', '0') == 1 && $option == 'com_content' && $view == 'article')) : ?>
@@ -34,14 +33,14 @@ $view = JRequest::getCmd('view', '');
 			    if (response.authResponse) {
 			    // user is already logged in and connected
 			    button.onclick = function() {
-			        if(document.id('login-form')){
-			            document.id('modlgn-username').set('value','Facebook');
-			            document.id('modlgn-passwd').set('value','Facebook');
-			            document.id('login-form').submit();
-			        } else if(document.id('com-login-form')) {
-			           document.id('username').set('value','Facebook');
-			           document.id('password').set('value','Facebook');
-			           document.id('com-login-form').submit();
+			        if(jQuery('#login-form').length > 0){
+			            jQuery('#modlgn-username').val('Facebook');
+			            jQuery('#modlgn-passwd').val('Facebook');
+			            jQuery('#login-form').submit();
+			        } else if(jQuery('com-login-form').length > 0) {
+			           jQuery('#username').val('Facebook');
+			           jQuery('#password').val('Facebook');
+			           jQuery('#com-login-form').submit();
 			        }
 			    }
 			} else {
@@ -49,14 +48,14 @@ $view = JRequest::getCmd('view', '');
 			    button.onclick = function() {
 			        FB.login(function(response) {
 			           if (response.authResponse) {
-			              if(document.id('login-form')){
-			                document.id('modlgn-username').set('value','Facebook');
-			                document.id('modlgn-passwd').set('value','Facebook');
-			                document.id('login-form').submit();
-			              } else if(document.id('com-login-form')) {
-			                 document.id('username').set('value','Facebook');
-			                 document.id('password').set('value','Facebook');
-			                 document.id('com-login-form').submit();
+			              if(jQuery('#login-form').length > 0){
+			                jQuery('#modlgn-username').val('Facebook');
+			                jQuery('#modlgn-passwd').val('Facebook');
+			                jQuery('#login-form').submit();
+			              } else if(jQuery('#com-login-form').length > 0) {
+			                 jQuery('#username').val('Facebook');
+			                 jQuery('#password').val('Facebook');
+			                 jQuery('#com-login-form').submit();
 			              }
 			          } else {
 			            //user cancelled login or did not grant authorization
@@ -72,19 +71,19 @@ $view = JRequest::getCmd('view', '');
 	  <?php endif; ?>
 	};
     //      
-   window.addEvent('load', function(){
-        (function(){
-                if(!document.getElementById('fb-root')) {
-                     var root = document.createElement('div');
-                     root.id = 'fb-root';
-                     document.getElementById('gkfb-root').appendChild(root);
-                     var e = document.createElement('script');
-                 e.src = document.location.protocol + '//connect.facebook.net/<?php echo $this->API->get('fb_lang', 'en_US'); ?>/all.js';
-                     e.async = true;
-                 document.getElementById('fb-root').appendChild(e);   
-                }
-        }());
-    }); 
+    jQuery(window).load(function() {
+    	(function(){
+    		if(!document.getElementById('fb-root')) {
+    			var root = document.createElement('div');
+    			root.id = 'fb-root';
+    			document.getElementById('gkfb-root').appendChild(root);
+    			var e = document.createElement('script');
+    			e.src = document.location.protocol + '//connect.facebook.net/<?php echo $this->API->get('fb_lang', 'en_US'); ?>/all.js';
+    			e.async = true;
+    			document.getElementById('fb-root').appendChild(e);
+    		}  
+    	}());
+    });
     //]]>
 </script>
 </gavern:social>

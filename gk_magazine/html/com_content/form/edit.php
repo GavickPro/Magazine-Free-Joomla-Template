@@ -9,15 +9,20 @@
 // no direct access
 defined('_JEXEC') or die;
 
+JHtml::_('bootstrap.framework');
 JHtml::_('behavior.keepalive');
-JHtml::_('behavior.tooltip');
 JHtml::_('behavior.calendar');
 JHtml::_('behavior.formvalidation');
+JHtml::_('formbehavior.chosen', 'select');
+JHtml::_('behavior.modal', 'a.modal_jform_contenthistory');
+
 
 // Create shortcut to parameters.
 $params = $this->state->get('params');
 //$images = json_decode($this->item->images);
 //$urls = json_decode($this->item->urls);
+$doc = JFactory::getDocument();
+$doc->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
 
 // This checks if the editor config options have ever been saved. If they haven't they will fall back to the original settings.
 $editoroptions = isset($params->show_publishing_options);
@@ -60,14 +65,7 @@ endif;
 			</div>
 		<?php endif; ?>
 
-			<div class="formelm-buttons">
-			<button type="button" onclick="Joomla.submitbutton('article.save')">
-				<?php echo JText::_('JSAVE') ?>
-			</button>
-			<button type="button" onclick="Joomla.submitbutton('article.cancel')">
-				<?php echo JText::_('JCANCEL') ?>
-			</button>
-			</div>
+			
 
 			<?php echo $this->form->getInput('articletext'); ?>
 
@@ -153,6 +151,19 @@ endif;
 		<?php echo $this->form->getInput('catid', null, $this->item->catid); ?>
 		<?php endif;?>
 		</div>
+		
+		<div class="formelm">
+			<?php echo $this->form->getLabel('tags'); ?>
+			<?php echo $this->form->getInput('tags'); ?>
+		</div>
+		
+		<?php if ($params->get('save_history')) : ?>
+			<div class="formelm">
+			<?php echo $this->form->getLabel('version_note'); ?>
+			<?php echo $this->form->getInput('version_note'); ?>
+		</div>
+		<?php endif; ?>
+		
 		<div class="formelm">
 		<?php echo $this->form->getLabel('created_by_alias'); ?>
 		<?php echo $this->form->getInput('created_by_alias'); ?>
@@ -216,5 +227,13 @@ endif;
 		<?php endif;?>
 		<?php echo JHtml::_( 'form.token' ); ?>
 	</fieldset>
+	<div class="formelm-buttons">
+	<button type="button" onclick="Joomla.submitbutton('article.save')">
+		<?php echo JText::_('JSAVE') ?>
+	</button>
+	<button type="button" onclick="Joomla.submitbutton('article.cancel')">
+		<?php echo JText::_('JCANCEL') ?>
+	</button>
+	</div>
 </form>
 </article>

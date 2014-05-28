@@ -6,7 +6,7 @@ JHtml::_('behavior.caption');
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 
 ?>
-<section class="blog-featured<?php echo $this->pageclass_sfx;?>">
+<section class="blog-featured<?php echo $this->pageclass_sfx;?>" itemscope itemtype="http://schema.org/Blog">
 	<?php if( $this->params->get('show_page_heading') != 0 ) : ?>
 	<header>
 		<h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
@@ -17,7 +17,8 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	<?php if (!empty($this->lead_items)) : ?>
 	<div class="items-leading">
 		<?php foreach ($this->lead_items as &$item) : ?>
-			<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+			<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+			
 				<?php
 					$this->item = &$item;
 					echo $this->loadTemplate('item');
@@ -44,7 +45,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	
 			<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>">
 			<?php endif; ?>
-				<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
+				<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 				<?php
 						$this->item = &$item;
 						echo $this->loadTemplate('item');

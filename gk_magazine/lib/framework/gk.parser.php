@@ -28,13 +28,11 @@ class GKParser {
     public $body;
     private $bInfo;
 
-    public function __construct()
-    {
-        jimport('joomla.environment.response');
-        $this->body = JResponse::getBody();
-        $this->bInfo = null;
-        $buf = $this->parseIt();
-        JResponse::setBody($buf);
+    public function __construct() {
+	    $this->body = JResponse::getBody();
+	    $this->bInfo = null;
+	    $buf = $this->parseIt();
+	    JResponse::setBody($buf);
     }
 
     public function parseIt()

@@ -33,7 +33,7 @@ endif;
 			    $label = ($label) ? $label : $link;
 			    ?>
 			<li>
-				<a href="<?php echo $link; ?>">
+				<a href="<?php echo $link; ?>" itemprop="url">
 				    <?php echo $label;  ?>
 				</a>
 			</li>

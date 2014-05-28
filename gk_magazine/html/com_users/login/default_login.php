@@ -44,8 +44,7 @@ JHtml::_('behavior.keepalive');
 				<?php endif; ?>
 			<?php endforeach; ?>
 			
-			<?php $tfa = JPluginHelper::getPlugin('twofactorauth'); ?>
-			<?php if (!is_null($tfa) && $tfa != array()): ?>
+			<?php if ($this->tfa): ?>
 			    <div class="login-fields">
 			         <?php echo $this->form->getField('secretkey')->label; ?>
 			       <?php echo $this->form->getField('secretkey')->input; ?>

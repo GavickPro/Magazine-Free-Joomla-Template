@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
  */
 ?>
 <?php if (($this->params->get('address_check') > 0) &&  ($this->contact->address || $this->contact->suburb  || $this->contact->state || $this->contact->country || $this->contact->postcode)) : ?>
-	<div class="contact-address">
+	<div class="contact-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 	<?php if ($this->params->get('address_check') > 0) : ?>
 		<span class="<?php echo $this->params->get('marker_class'); ?>" >
 			<?php echo $this->params->get('marker_address'); ?>
@@ -21,27 +21,27 @@ defined('_JEXEC') or die;
 		<address>
 	<?php endif; ?>
 	<?php if ($this->contact->address && $this->params->get('show_street_address')) : ?>
-		<span class="contact-street">
+		<span class="contact-street" itemprop="streetAddress">
 			<?php echo nl2br($this->contact->address); ?>
 		</span>
 	<?php endif; ?>
 	<?php if ($this->contact->suburb && $this->params->get('show_suburb')) : ?>
-		<span class="contact-suburb">
+		<span class="contact-suburb" itemprop="addressLocality">
 			<?php echo $this->contact->suburb; ?>
 		</span>
 	<?php endif; ?>
 	<?php if ($this->contact->state && $this->params->get('show_state')) : ?>
-		<span class="contact-state">
+		<span class="contact-state" itemprop="addressRegion">
 			<?php echo $this->contact->state; ?>
 		</span>
 	<?php endif; ?>
 	<?php if ($this->contact->postcode && $this->params->get('show_postcode')) : ?>
-		<span class="contact-postcode">
+		<span class="contact-postcode" itemprop="postalCode">
 			<?php echo $this->contact->postcode; ?>
 		</span>
 	<?php endif; ?>
 	<?php if ($this->contact->country && $this->params->get('show_country')) : ?>
-		<span class="contact-country">
+		<span class="contact-country" itemprop="addressCountry">
 			<?php echo $this->contact->country; ?>
 		</span>
 	<?php endif; ?>
@@ -57,7 +57,7 @@ defined('_JEXEC') or die;
 <?php endif; ?>
 <?php if ($this->contact->email_to && $this->params->get('show_email')) : ?>
 	<p>
-		<span class="<?php echo $this->params->get('marker_class'); ?>" >
+		<span class="<?php echo $this->params->get('marker_class'); ?>" itemprop="email">
 			<?php echo $this->params->get('marker_email'); ?>
 		</span>
 		<span class="contact-emailto">
@@ -71,7 +71,7 @@ defined('_JEXEC') or die;
 		<span class="<?php echo $this->params->get('marker_class'); ?>" >
 			<?php echo $this->params->get('marker_telephone'); ?>
 		</span>
-		<span class="contact-telephone">
+		<span class="contact-telephone" itemprop="telephone">
 			<?php echo nl2br($this->contact->telephone); ?>
 		</span>
 	</p>
@@ -81,7 +81,7 @@ defined('_JEXEC') or die;
 		<span class="<?php echo $this->params->get('marker_class'); ?>" >
 			<?php echo $this->params->get('marker_fax'); ?>
 		</span>
-		<span class="contact-fax">
+		<span class="contact-fax" itemprop="faxNumber">
 		<?php echo nl2br($this->contact->fax); ?>
 		</span>
 	</p>
@@ -91,7 +91,7 @@ defined('_JEXEC') or die;
 		<span class="<?php echo $this->params->get('marker_class'); ?>" >
 			<?php echo $this->params->get('marker_mobile'); ?>
 		</span>
-		<span class="contact-mobile">
+		<span class="contact-mobile" itemprop="telephone">
 			<?php echo nl2br($this->contact->mobile); ?>
 		</span>
 	</p>
@@ -101,7 +101,7 @@ defined('_JEXEC') or die;
 		<span class="<?php echo $this->params->get('marker_class'); ?>" >
 		</span>
 		<span class="contact-webpage">
-			<a href="<?php echo $this->contact->webpage; ?>" target="_blank">
+			<a href="<?php echo $this->contact->webpage; ?>" target="_blank" itemprop="url">
 			<?php echo JStringPunycode::urlToUTF8($this->contact->webpage); ?></a> 
 		</span>
 	</p>

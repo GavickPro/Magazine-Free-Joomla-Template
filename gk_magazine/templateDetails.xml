@@ -2,13 +2,13 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
 			<name>gk_magazine</name>
-			<creationDate>13 Feb 2014</creationDate>
+			<creationDate>20 May 2014</creationDate>
 			<author>GavickPro</author>
 			<authorEmail>support@gavick.com</authorEmail>
 			<authorUrl>http://gavick.com</authorUrl>
 			<copyright>Copyright (C) 2007 - 2014 GavickPro. All rights reserved.</copyright>
 			<license></license>
-			<version>3.11</version>
+			<version>3.11.1</version>
 			<description>
 						<![CDATA[<link rel="stylesheet" type="text/css" href="../templates/gk_magazine/admin/style.css" />
 									<style type="text/css" media="all">
@@ -50,7 +50,7 @@
 									Still considering what to do? Make up your mind and click "buy now" button. It's so easy...  
 									</p>
 									
-									<p class="livedemo">View Magazine template in action <a href="http://demo.gavick.com/joomla25/magazine/" target="_blank">here</a>...</p><small>Gavern v.3.11</small></div>
+									<p class="livedemo">View Magazine template in action <a href="http://demo.gavick.com/joomla25/magazine/" target="_blank">here</a>...</p><small>Gavern v.3.11.1</small></div>
 									</div>
 									</div><span class='tooltip-content'>Magazine - Joomla! Blog / Magazine Template  </span>]]>
 			</description>
