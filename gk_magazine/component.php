@@ -13,6 +13,14 @@
 // No direct access.
 defined('_JEXEC') or die;
 
+$doc = JFactory::getDocument();
+$doc->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
+$doc->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap-responsive.min.css');
+$doc->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap-extended.css');
+$doc->addStyleSheet($this->baseurl . '/media/jui/css/icomoon.css');
+$doc->addStyleSheet($this->baseurl . '/media/jui/css/chosen.css');
+$doc->addStyleSheet($this->baseurl . '/media/media/css/mediamanager.css');
+
 $print = JRequest::getCmd('print');
 $option = JRequest::getCmd('option');
 $view = JRequest::getCmd('view');
