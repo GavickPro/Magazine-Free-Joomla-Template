@@ -45,3 +45,41 @@ body {
 	float: none;
 	width: 100%;
 }
+
+/* Cookie consent plugin */
+@media (max-width: 660px) {
+    body #cc-notification h2, 
+    body #cc-notification h3, 
+    body #cc-notification p {
+        font-size: 12px!important;
+        margin-bottom:0!important;
+        width: 100%!important;
+        max-width: 100%!important;
+    }
+
+    body #cc-notification h2 span, 
+    body #cc-notification h2 {
+        font-size: 12px!important;
+    }
+
+    body #cc-notification #cc-notification-wrapper {
+        padding: 10px 32px 0!important;
+    }
+
+    body #cc-notification ul.cc-notification-buttons {
+        clear: both!important;
+        width: 100%!important;
+        position: static!important;
+        text-align: center;
+    }
+
+    body #cc-notification ul.cc-notification-buttons li {
+        float: none!important;
+        display: inline-block;
+    }
+
+    body #cc-notification a, 
+    body #cc-notification a:visited {
+        font-size: 12px!important;
+    }
+}
