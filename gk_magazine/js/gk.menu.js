@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 	            el = jQuery(el);
 	            el.attr('onmouseover', '');
 	
-	            if(el.parent().hasClass('haschild') && jQuery(document.body).attr('data-tablet') != null) {
+	            if(el.parent().hasClass('haschild') && jQuery('body').attr('data-tablet') !== undefined) {
 	                el.click(function(e) {
 	                    if(el.attr("dblclick") == undefined) {
 	                        e.preventDefault();
