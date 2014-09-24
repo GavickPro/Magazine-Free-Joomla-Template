@@ -25,6 +25,9 @@ body {
 	padding: 0;
 	word-wrap: break-word;
 }
+b, strong {
+	font-weight: 600;
+}
 a,
 #gkMainbody a:active,
 #gkMainbody a:focus,
