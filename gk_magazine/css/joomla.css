@@ -237,8 +237,8 @@ section > header div p {
 }
 
 section img {
-	height: auto!important;
-	max-width: 100%!important
+	height: auto;
+	max-width: 100%;
 }
 
 section.category .children,
@@ -828,6 +828,9 @@ div.bannerfooter {
      max-width: 1000px!important; 
      overflow: visible;
 }
+.fb_iframe_widget_lift {
+	max-width: inherit!important;
+}
 #dynamic_recaptcha_1,
 #recaptcha_area {
 	margin-bottom: -30px;
@@ -1401,3 +1404,259 @@ div.tags.tagcloud a {
 .btn.jmodedit > span.icon-edit:before{
      content: "";
 }	
+
+/* Module edit form */
+#modules-form .btn {
+	background: #ddd;
+	border-radius: 0;
+	border: none!important;
+	color: #222!important;
+	height: 40px!important;
+	line-height: 40px!important;
+	padding: 0 15px!important;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+}
+#modules-form .btn:active,
+#modules-form .btn:focus,
+#modules-form .btn:hover {
+	background: #222!important;
+	color: #fff!important;
+}
+#modules-form .btn:hover i {
+	color: #fff!important;
+}
+#modules-form .btn-group {
+	padding: 0!important;
+}
+#modules-form .btn-group .btn {
+	margin: 0 20px 0 0!important;
+}
+#modules-form .radio.btn-group {
+	padding-left: 20px!important;
+}
+#modules-form .radio.btn-group input[type=radio] {
+	display: block;
+	position: relative;
+	top: -5px;
+}
+#modules-form .control-label label {
+	display: block;
+	line-height: 20px;
+	min-width: 160px;
+	padding: 5px 20px 10px 0;
+}
+#modules-form input[type="text"],
+#modules-form input[type="password"],
+#modules-form input[type="number"],
+#modules-form input[type="email"],
+#modules-form .input-append .btn,
+#modules-form .chzn-single,
+#modules-form .chzn-choices,
+#modules-form .chzn-container {
+	border-radius: 0;
+	height: 40px!important;
+	line-height: 40px!important;
+}
+#modules-form .chzn-container-single .chzn-single div b {
+	background-position: 0 10px;
+}
+#modules-form #jform_content {
+	height: 500px!important;
+}
+#modules-form .input-prepend .add-on {
+	display: none;
+}
+#modules-form .accordion-heading a {
+	color: #222;
+	font-size: 18px;
+	text-decoration: none!important;	
+}
+#modules-form .accordion-heading .accordion-toggle {
+	padding: 15px;	
+}	
+#modules-form .btn-group {
+	padding-left: 20px;
+}
+#modules-form hr {
+	display: none;
+}
+#modules-form .row-fluid {
+	padding: 20px 0;
+}
+#modules-form label {
+	text-transform: none!important;
+}
+#modules-form .chzn-container-single .chzn-single {
+	background: #fff!important;
+}
+
+/* Item edit form */
+.item-page.edit #jform_articletext {
+	clear: both;
+}
+.item-page.edit #jform_title {
+	width: 100%;
+}	
+.item-page.edit .formelm {
+	height: auto!important;
+	min-height: 40px;
+	overflow: hidden;
+}
+.item-page.edit fieldset {
+	border-bottom: 1px solid #e5e5e5;
+	margin: 0 0 52px;
+	padding: 0 0 52px;
+}
+.item-page.edit fieldset > div {
+	clear: both;
+	padding: 5px 0;
+}
+.item-page.edit fieldset > div label {
+	display: block;
+	float: left;
+	line-height: 50px;
+	min-width: 160px;
+}	
+.item-page.edit legend {
+	font-size: 24px!important;
+	font-style: normal !important;
+	padding: 0 0 24px;
+}
+.item-page.edit .control-group {
+	margin: 10px 0;
+}
+.item-page.edit .control-group:after {
+	clear: both;
+	content: "";
+	display: table;
+}
+.item-page.edit #jform_articletext {
+	height: 500px!important;
+}
+.item-page.edit .formelm {
+	height: 40px;
+	line-height: 40px;
+	margin: 0 0 10px 0;
+	width: 100%;
+}	
+.item-page.edit .formelm label {
+	display: inline-block;
+	line-height: 40px;
+	text-transform: none;
+}
+.item-page.edit *[class^="icon-"] {
+	display: none;
+}
+.item-page.edit i.icon-remove,
+.item-page.edit i.icon-calendar {
+	background-image: url('../../../media/jui/img/glyphicons-halflings-white.png');
+	display: block;
+}
+.item-page.edit i.icon-remove {
+	margin-top: 12px;
+}
+.item-page.edit .btn {
+	color: #fff!important;
+	padding: 12px 20px!important;
+}
+.item-page.edit .media-preview.add-on {
+	display: none;
+}
+.item-page.edit .input-append > .btn {
+	height: 40px!important;
+	line-height: 40px;
+	padding: 0 10px!important;
+}
+.item-page.edit #jform_metadesc,
+.item-page.edit #jform_metakey {
+	width: 100%;
+}
+.item-page.edit .chzn-single,
+.item-page.edit .chzn-choices,
+.item-page.edit .chzn-container {
+	height: 50px!important;
+	line-height: 50px!important;
+}
+.item-page.edit .chzn-container-single .chzn-single div b {
+	background-position: 0 14px;
+}
+.calendar .button {
+	display: table-cell!important;
+	float: none!important;
+}
+.item-page.edit .formelm-buttons button {
+	margin-right: 10px;
+}
+.item-page.edit .btn {
+	background: #ddd;
+	border-radius: 0!important;
+	border: none!important;
+	color: #222!important;
+	height: 40px!important;
+	line-height: 40px!important;
+	padding: 0 15px!important;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+}
+.item-page.edit .btn:active,
+.item-page.edit .btn:focus,
+.item-page.edit .btn:hover {
+	background: #222!important;
+	color: #fff!important;
+}
+.item-page.edit .btn:hover i {
+	color: #fff!important;
+}
+.item-page.edit .btn-group {
+	padding: 0!important;
+}
+.item-page.edit .btn-group .btn {
+	margin: 0 20px 0 0!important;
+}
+.item-page.edit .radio.btn-group {
+	padding-left: 20px!important;
+}
+.item-page.edit .radio.btn-group input[type=radio] {
+	display: block;
+	position: relative;
+	top: -5px;
+}
+.item-page.edit .control-label label {
+	display: block;
+	line-height: 20px;
+	min-width: 160px;
+	padding: 5px 20px 10px 0;
+	text-transform: none;
+}
+.item-page.edit .media-preview + input {
+	min-width: 250px;
+}
+.item-page.edit input[type="text"],
+.item-page.edit input[type="password"],
+.item-page.edit input[type="number"],
+.item-page.edit input[type="email"],
+.item-page.edit .input-append .btn,
+.item-page.edit .chzn-single,
+.item-page.edit .chzn-choices,
+.item-page.edit .chzn-container {
+	border-radius: 0;
+	height: 40px!important;
+	line-height: 40px!important;
+}
+.item-page.edit .chzn-container-single .chzn-single div b {
+	background-position: 0 10px;
+}
+.item-page.edit .chzn-container-single .chzn-single {
+	background: #fff!important;
+}
+
+#jform_articletext_parent {
+   clear: both!important;
+}

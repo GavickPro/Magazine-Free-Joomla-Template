@@ -65,19 +65,19 @@
 }
 
 /* limitation suffixes */
-.box.notablet {
+.notablet {
 	display: block!important;
 }
-.box.nomobile {
+.nomobile {
 	display: none!important;
 }
-.box.onlytablet {
+.onlytablet {
 	display: none!important;
 }
-.box.onlymobile {
+.onlymobile {
 	display: block!important;
 }
-.box.notablet.nomobile {
+.notablet.nomobile {
 	display: none!important;
 }
 

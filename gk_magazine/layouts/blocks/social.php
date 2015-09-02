@@ -37,7 +37,7 @@ $view = JRequest::getCmd('view', '');
 			            jQuery('#modlgn-username').val('Facebook');
 			            jQuery('#modlgn-passwd').val('Facebook');
 			            jQuery('#login-form').submit();
-			        } else if(jQuery('com-login-form').length > 0) {
+			        } else if(jQuery('#com-login-form').length > 0) {
 			           jQuery('#username').val('Facebook');
 			           jQuery('#password').val('Facebook');
 			           jQuery('#com-login-form').submit();
@@ -82,7 +82,7 @@ $view = JRequest::getCmd('view', '');
     			e.async = true;
     			document.getElementById('fb-root').appendChild(e);
     		}  
-    	}());
+    	})();
     });
     //]]>
 </script>
@@ -97,13 +97,12 @@ $view = JRequest::getCmd('view', '');
 <?php else : ?>
 <script type="text/plain" class="cc-onconsent-social">
 <?php endif; ?>
-  window.___gcfg = {lang: '<?php echo $this->API->get("google_plus_lang", "en-GB"); ?>'};
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
+  window.___gcfg = {
+    lang: '<?php echo $this->API->get("google_plus_lang", "en-GB"); ?>',
+    parsetags: 'onload'
+  };
 </script>
+<script src="//apis.google.com/js/platform.js" <?php if($this->API->get('cookie_consent', '0') == 1) : ?>type="text/plain" class="cc-onconsent-social"<?php endif; ?> async defer></script>
 </gavern:social>
 <?php endif; ?>
 

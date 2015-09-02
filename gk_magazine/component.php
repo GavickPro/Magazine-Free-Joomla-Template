@@ -26,6 +26,7 @@ $option = JRequest::getCmd('option');
 $view = JRequest::getCmd('view');
 // include framework classes and files
 require_once('lib/gk.framework.php');
+require_once('lib/framework/gk.const.php');
 // run the framework
 $tpl = new GKTemplate($this, $GK_TEMPLATE_MODULE_STYLES, true);
 
@@ -50,6 +51,10 @@ $tpl = new GKTemplate($this, $GK_TEMPLATE_MODULE_STYLES, true);
 	
 	<?php if($option == 'com_mailto') : ?>
 	<link rel="stylesheet" href="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/css/system/mailto.css" type="text/css" />
+	<?php endif; ?>
+	
+	<?php if($option == 'com_k2') : ?>
+	<link rel="stylesheet" href="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/css/editor.css" type="text/css" />
 	<?php endif; ?>
 	
 	<script type="text/javascript" src="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/js/prefixfree.js"></script>

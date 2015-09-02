@@ -25,7 +25,7 @@ class GKTemplateSocial {
     	// get the informations about excluded articles and categories
     	$excluded_articles = explode(',', $this->parent->API->get('excluded_arts', ''));
     	$excluded_categories = $this->parent->API->get('excluded_cats', '');
-    	if(is_array($excluded_categories) && $excluded_categories[0] == '') $excluded_categories = array(0);
+    	if(is_array($excluded_categories) && count($excluded_categories) > 0 && $excluded_categories[0] == '') $excluded_categories = array(0);
     	else if(is_string($excluded_categories)) $excluded_categories = array($excluded_categories);
     	// get the variables from the URL
     	$option = JRequest::getCmd('option', '');
@@ -74,7 +74,7 @@ class GKTemplateSocial {
     		$google_plus_attributes = '';    		
     		// configure FB like
     		if($this->parent->API->get('google_plus_count', 1) == 0) { 
-    			$google_plus_attributes .= ' count="false"'; 
+    			$google_plus_attributes .= ' annotation="none"'; 
     		}
      		
     		if($this->parent->API->get('google_plus_size', 'medium') != 'standard') { 
@@ -108,7 +108,7 @@ class GKTemplateSocial {
     		if($this->parent->API->get('tweet_btn_data_via', '') != '') $tweet_btn_attributes .= ' data-via="'.$this->parent->API->get('tweet_btn_data_via', '').'"'; 
     		$tweet_btn_attributes .= ' data-lang="'.$this->parent->API->get('tweet_btn_data_lang', 'en').'"';
     		  
-    		GKParser::$customRules['/GK_TWEET_BTN_SETTINGS/'] = $tweet_btn_attributes;
+    		GKParser::$customRules['/GK_TWEET_BTN_SETTINGS/i'] = $tweet_btn_attributes;
     	} else {
     		// clear Twitter buttons
     		GKParser::$customRules['/<gavern:social><a href="http:\/\/twitter.com\/share"(.*?)\/a><\/gavern:social>/mi'] = '';
@@ -156,7 +156,11 @@ class GKTemplateSocial {
                         	$script_code .= '<script type="text/plain" class="cc-onconsent-analytics">';
                         }
                         
-                        $script_code .= 'var _gaq = _gaq || []; _gaq.push([\'_setAccount\', \'' .$key. '\']); _gaq.push([\'_trackPageview\']);(function() { var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s); })();</script>';
+                        if($this->parent->API->get('google_analytics_type','') != 'universal') {
+                         $script_code .= 'var _gaq = _gaq || []; _gaq.push([\'_setAccount\', \'' .$key. '\']); _gaq.push([\'_trackPageview\']);(function() { var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s); })();</script>';
+                        } else {
+                         $script_code .= '(function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\'); ga(\'create\', \'' . $key . '\', \'auto\'); ga(\'send\', \'pageview\');</script>';
+                        }
 			        }
 			    }
 			}

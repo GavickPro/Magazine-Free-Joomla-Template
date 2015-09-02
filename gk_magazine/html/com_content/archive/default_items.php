@@ -13,7 +13,7 @@ $params = &$this->params;
 	<header>
 		<h1 itemprop="name">
 			<?php if ($params->get('link_titles')): ?>
-			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catslug, $item->language)); ?>">  
+			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid, $item->language)); ?>">  
 				<?php echo $this->escape($item->title); ?>
 			</a>
 			<?php else: ?>

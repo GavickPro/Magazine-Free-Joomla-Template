@@ -228,6 +228,32 @@ jQuery(document).ready(function() {
 			}
 		});
 	}
+
+	if(jQuery(document.body).attr('data-smoothscroll') == '1') {
+		// smooth anchor scrolling
+		jQuery('a[href*="#"]').on('click', function (e) {
+	        e.preventDefault();
+	        if(this.hash !== '') {
+	            var target = jQuery(this.hash);
+
+	            if(this.hash !== '' && this.href.replace(this.hash, '') == window.location.href.replace(window.location.hash, '')) {    
+	                if(target.length && this.hash !== '#') {
+	                    jQuery('html, body').stop().animate({
+	                        'scrollTop': target.offset().top
+	                    }, 1000, 'swing', function () {
+	                        if(this.hash !== '#') {
+	                            window.location.hash = target.selector;
+	                        }
+	                    });
+	                } else if(this.hash !== '' && this.href.replace(this.hash, '') !== '') {
+	                    window.location.href = this.href;
+	                }
+	            } else if(this.hash !== '' && this.href.replace(this.hash, '') !== '') {
+	                window.location.href = this.href;
+	            }
+	        }
+	    });
+	}
 	// style switcher
 	if(jQuery('#gkStyleArea')) {
 		jQuery('#gkStyleArea').bind('touchstart', function() {

@@ -172,6 +172,17 @@
 	display: block;
 	text-transform: none;
 }
+.gkMainMenu1 .childcontent .childcontent.active,
+.gkMainMenu1 > ul > li:hover > .childcontent .childcontent,
+.gkMainMenu2 .childcontent .childcontent.active,
+.gkMainMenu2 > ul > li:hover > .childcontent .childcontent  {
+	pointer-events: auto;
+}
+.gkMainMenu1 .childcontent .childcontent .childcontent,
+.gkMainMenu2 .childcontent .childcontent .childcontent {
+	z-index: 1002!important;
+}
+
 .gkMainMenu1 li .module p,
 .gkMainMenu2 li li .module p {
 	font-size: 12px;

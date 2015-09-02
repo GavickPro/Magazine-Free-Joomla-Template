@@ -73,6 +73,15 @@ $user = JFactory::getUser();
 												<time datetime="<?php echo JHtml::_('date', $item->created, JText::_(DATE_W3C)); ?>"> <?php echo JHTML::_('date', $item->created , JText::_('F j, Y')); ?> </time>
 										</li>
 										<?php endif; ?>
+										
+										<?php if(isset($item->editLink)): ?>
+										<!-- Item edit link -->
+										<li class="userItemEditLink">
+										   <a class="modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $item->editLink; ?>">
+										      <?php echo JText::_('K2_EDIT_ITEM'); ?>
+										   </a>
+										</li>
+										<?php endif; ?>
 								</ul>
 								<?php endif; ?>
 								

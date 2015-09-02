@@ -60,6 +60,9 @@ $logo_slogan = $templateParams->get('logo_slogan', '');
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/css/system/error.style<?php echo $template_style; ?>.css" type="text/css" />
+<?php if($templateParams->get('css_override')) : ?>
+<link rel="stylesheet" href="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/css/override.css" type="text/css" />
+<?php endif; ?>
 </head>
 <body>
 <div id="gkPage">
@@ -78,7 +81,11 @@ $logo_slogan = $templateParams->get('logo_slogan', '');
 		<div id="gkPageWrap">
 				<div id="frame">
 						<div id="errorDescription">
-								<h2><span><?php echo $this->error->getCode(); ?></span><?php echo JText::_('TPL_GK_LANG_ERROR_INFO'); ?> </h2>
+								<?php if($this->error->getCode() == 403 || $this->error->getCode() == 404) : ?>
+									<h2><span><?php echo $this->error->getCode(); ?></span><?php echo JText::_('TPL_GK_LANG_ERROR_INFO'); ?> </h2>
+								<?php else : ?>
+									<h2><span><?php echo $this->error->getCode(); ?></span><?php echo $this->error->getMessage(); ?> </h2>
+								<?php endif; ?>
 								<h3><?php echo JText::_('TPL_GK_LANG_ERROR_DESC'); ?></h3>
 						</div>
 				</div>

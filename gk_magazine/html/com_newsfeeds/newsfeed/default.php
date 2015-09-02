@@ -27,7 +27,8 @@ defined('_JEXEC') or die;
 		<img src="<?php echo $this->newsfeed->image['url']; ?>" alt="<?php echo $this->newsfeed->image['title']; ?>" />
 	</div>
 	<?php endif; ?>
-
+	
+	<?php if(count($this->newsfeed->items)) : ?>
 	<ol>
 	<?php foreach ($this->newsfeed->items as $item) :  ?>
 		<li>
@@ -55,4 +56,5 @@ defined('_JEXEC') or die;
 		</li>
 	<?php endforeach; ?>
 	</ol>
+	<?php endif; ?>
 </section>

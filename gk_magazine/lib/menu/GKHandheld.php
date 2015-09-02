@@ -119,47 +119,53 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
             $data = '';
             $tmp = $item;
             $tmpname = $tmp->name;
-            $txt = $tmpname;
-            $txt_margin = '';
-            for($i = 0; $i < $level; $i++) {
-            	$txt_margin .= '&mdash;';
-            }
             
-            if($level > 0) {
-            	$txt = ' ' . $txt;
-            }
-            
-            $txt = $txt_margin . $txt;
+            if(!isset($tmp->content) || (isset($tmp->content) && stripos($tmp->content, '<jdoc') === FALSE)) {
+                $txt = $tmpname;
+                $txt_margin = '';
+                for($i = 0; $i < $level; $i++) {
+                    $txt_margin .= '&mdash;';
+                }
 
-            if ($tmp->type == 'menulink') {
-                $menu = JFactory::getApplication()->getMenu();
-                $alias_item = clone ($menu->getItem($tmp->query['Itemid']));
-                if (!$alias_item) return false;
-                else $tmp->url = $alias_item->link;
-            }
+                if($level > 0) {
+                    $txt = ' ' . $txt;
+                }
 
-            if ($tmpname) {
-                if ($tmp->type == 'separator') {
-                    $data = ' value="#">' . $txt;
-                } else {
-                    if ($tmp->url != null) {
-                        $data = ' value="'. $tmp->url . '">' . $txt;
-                    } else {
+                $txt = $txt_margin . $txt;
+
+                if ($tmp->type == 'menulink') {
+                    $menu = &JSite::getMenu();
+                    $alias_item = clone ($menu->getItem($tmp->query['Itemid']));
+                    if (!$alias_item) return false;
+                    else $tmp->url = $alias_item->link;
+                }
+
+                if ($tmpname) {
+                    if ($tmp->type == 'separator') {
                         $data = ' value="#">' . $txt;
+                    } else {
+                        if ($tmp->url != null) {
+                            $data = ' value="'. $tmp->url . '">' . $txt;
+                        } else {
+                            $data = ' value="#">' . $txt;
+                        }
                     }
                 }
-            }
 
-            if ($this->getParam('gkmenu')) {
-                if (isset($item->content) && $item->content) {
-                    $data .= $item->content;
+                if ($this->getParam('gkmenu')) {
+                    if (isset($item->content) && $item->content) {
+                        $data .= $item->content;
+                    }
                 }
+
+                $data .= "</option>";
+
+                if ($ret) return $data;
+                else echo $data;
+            } else {
+                if ($ret) return $data;
+                else echo $data;
             }
-            
-            $data .= "</option>";
-            
-            if ($ret) return $data;
-            else echo $data;
         }
         
         function setParam($paramName, $paramValue) {
@@ -167,8 +173,10 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
         }
 
         function beginMenuItem($mitem = null, $level = 0) {
-            echo "<option ";
-            if($mitem->id == $this->open) echo 'selected="selected" ';
+            if(!isset($mitem->content) || (isset($mitem->content) && stripos($mitem->content, '<jdoc') === FALSE)) {
+                echo "<option ";
+                if($mitem->id == $this->open) echo 'selected="selected" ';
+            }
         }
         
         function endMenuItem($mitem = null, $level = 0) {

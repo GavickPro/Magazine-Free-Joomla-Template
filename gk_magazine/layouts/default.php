@@ -51,7 +51,7 @@ $tpl_page_suffix = $this->page_suffix != '' ? ' class="'.$this->page_suffix.'"' 
     <?php $this->layout->loadBlock('head'); ?>
 	<?php $this->layout->loadBlock('cookielaw'); ?>
 </head>
-<body<?php echo $tpl_page_suffix; ?><?php if($this->browser->get("tablet") == true) echo ' data-tablet="true"'; ?><?php if($this->browser->get("mobile") == true) echo ' data-mobile="true"'; ?><?php $this->layout->generateLayoutWidths(); ?> data-layout="<?php echo $this->API->get('layout_position', 'left'); ?>">	
+<body<?php echo $tpl_page_suffix; ?><?php if($this->browser->get("tablet") == true) echo ' data-tablet="true"'; ?><?php if($this->browser->get("mobile") == true) echo ' data-mobile="true"'; ?><?php $this->layout->generateLayoutWidths(); ?> data-layout="<?php echo $this->API->get('layout_position', 'left'); ?>" data-smoothscroll="<?php echo $this->API->get('use_smoothscroll', '1'); ?>">
 	<?php
 	     // put Google Analytics code
 	     echo $this->social->googleAnalyticsParser();
@@ -207,5 +207,12 @@ $tpl_page_suffix = $this->page_suffix != '' ? ' class="'.$this->page_suffix.'"' 
 	<div id="gkPopupOverlay"></div>
 		
 	<jdoc:include type="modules" name="debug" />
+
+	<script>
+	jQuery(document).ready(function(){
+   		// Target your .container, .wrapper, .post, etc.
+   		jQuery("body").fitVids();
+	});
+	</script>
 </body>
 </html>

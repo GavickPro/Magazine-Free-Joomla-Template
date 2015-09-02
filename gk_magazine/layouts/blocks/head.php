@@ -27,10 +27,6 @@ if($this->API->get('typography', '1') == '1') {
 	}
 }
 
-if($this->API->get("css_override", '0')) {
-	$this->API->addCSS($this->API->URLtemplate() . '/css/override.css');
-}
-
 $this->API->addCSSRule($this->API->get('css_custom', ''));
 
 // include fonts
@@ -72,6 +68,7 @@ $this->API->addJSFragment("\n".' $GKMenu = { height:'.($this->API->get('menu_hei
 
 $this->API->addJS($this->API->URLtemplate() . '/js/gk.scripts.js');
 $this->API->addJS($this->API->URLtemplate() . '/js/gk.menu.js');
+$this->API->addJS($this->API->URLtemplate() . '/js/fitvids.jquery.js');
 $this->API->addJSFragment( "\n".'$GK_TMPL_URL = "' . $this->API->URLtemplate() . '";'."\n" );
 $this->API->addJSFragment( "\n".'$GK_URL = "' . $this->API->URLbase() . '";'."\n" );
 
@@ -106,3 +103,22 @@ if($this->API->get('js_compression', '0') == 1 ) {
 <script type="text/javascript" src="<?php echo $this->API->URLtemplate() . '/js/selectivizr.js'; ?>"></script>
 <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<?php 
+if(
+  JRequest::getCmd('option') == 'com_config' ||
+  (
+    JRequest::getCmd('option') == 'com_content' &&
+    JRequest::getCmd('layout') == 'edit'
+  )
+) {
+  $doc = JFactory::getDocument();
+  $doc->addStyleSheet($this->API->URLbase() . '/media/jui/css/bootstrap.min.css');
+  $doc->addStyleSheet($this->API->URLbase() . '/media/jui/css/bootstrap-responsive.min.css');
+  $doc->addStyleSheet($this->API->URLbase() . '/media/jui/css/bootstrap-extended.css');
+  $doc->addStyleSheet($this->API->URLbase() . '/media/jui/css/icomoon.css');
+  $doc->addStyleSheet($this->API->URLbase() . '/media/jui/css/chosen.css');
+  $doc->addStyleSheet($this->API->URLbase() . '/media/media/css/mediamanager.css');
+}
+
+// EOF

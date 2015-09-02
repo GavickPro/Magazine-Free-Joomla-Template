@@ -2,13 +2,13 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
 			<name>gk_magazine</name>
-			<creationDate>20 May 2014</creationDate>
+			<creationDate>16 Jul 2015</creationDate>
 			<author>GavickPro</author>
 			<authorEmail>support@gavick.com</authorEmail>
 			<authorUrl>http://gavick.com</authorUrl>
-			<copyright>Copyright (C) 2007 - 2014 GavickPro. All rights reserved.</copyright>
+			<copyright>Copyright (C) 2007 - 2015 GavickPro. All rights reserved.</copyright>
 			<license></license>
-			<version>3.11.1</version>
+			<version>3.18</version>
 			<description>
 						<![CDATA[<link rel="stylesheet" type="text/css" href="../templates/gk_magazine/admin/style.css" />
 									<style type="text/css" media="all">
@@ -50,7 +50,7 @@
 									Still considering what to do? Make up your mind and click "buy now" button. It's so easy...  
 									</p>
 									
-									<p class="livedemo">View Magazine template in action <a href="http://demo.gavick.com/joomla25/magazine/" target="_blank">here</a>...</p><small>Gavern v.3.11.1</small></div>
+									<p class="livedemo">View Magazine template in action <a href="http://demo.gavick.com/joomla25/magazine/" target="_blank">here</a>...</p><small>Gavern v.3.18</small></div>
 									</div>
 									</div><span class='tooltip-content'>Magazine - Joomla! Blog / Magazine Template  </span>]]>
 			</description>
@@ -194,6 +194,10 @@
 									
 									<!-- Features -->
 									<fieldset name="FEATURES_SETTINGS" addfieldpath="/templates/gk_magazine/admin/elements">
+												<field name="use_smoothscroll" type="radio" class="btn-group" default="1" label="TPL_GK_LANG_USE_SMOOTH_SCROLL" description="">
+		                                                <option value="1">TPL_GK_LANG_ENABLED</option>
+		                                                <option value="0">TPL_GK_LANG_DISABLED</option>
+		                                        </field>
 												<field name="login_url" type="text" default="index.php?option=com_users&amp;view=login" label="TPL_GK_LANG_LOGIN_URL" description="TPL_GK_LANG_LOGIN_URL_DESC" />
 												<field name="rss_link" type="radio" class="btn-group" default="1" label="TPL_GK_LANG_RSS_LINK" description="TPL_GK_LANG_RSS_LINK_DESC">
 															<option value="1">TPL_GK_LANG_ENABLED</option>
@@ -253,6 +257,10 @@
 												</field>
 												<field name="gk_line_15" type="line" text="TPL_GK_LANG_GA_TEXT" />
 												<field name="google_analytics" type="googleanalytics" label="TPL_GK_LANG_GOOGLE_ANALYTICS" description="TPL_GK_LANG_GOOGLE_ANALYTICS_DESC" />
+												<field name="google_analytics_type" type="list" default="old" label="TPL_GK_LANG_GOOGLE_ANALYTICS_TYPE" description="TPL_GK_LANG_GOOGLE_ANALYTICS_TYPE_DESC">
+		                                              <option value="old">Google Analytics</option>
+		                                              <option value="universal">Universal Analytics</option>
+		                                        </field>
 												<field name="gk_line_14" type="line" text="TPL_GK_LANG_OVERRIDES_TEXT" />
 												<field name="tools" type="list" default="1" label="TPL_GK_LANG_TOOLS" description="TPL_GK_LANG_TOOLS_DESC">
 															<option value="all">TPL_GK_LANG_TOOLS_ALL</option>
@@ -322,6 +330,7 @@
 															<option value="standard">standard</option>
 															<option value="button_count">button_count</option>
 															<option value="box_count">box_count</option>
+															<option value="button">button</option>
 												</field>
 												<field name="fb_like_show_faces" type="list" default="true" label="TPL_GK_LANG_FB_LIKE_SHOW_FACES" description="TPL_GK_LANG_FB_LIKE_SHOW_FACES_DESC">
 															<option value="true">TPL_GK_LANG_ENABLED</option>

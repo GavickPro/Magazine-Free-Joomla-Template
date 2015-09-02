@@ -21,6 +21,15 @@ $gkModulesCounter = array();
  
 function modChrome_gk_style($module, $params, $attribs) {	
 	global $gkModulesCounter;
+
+	/*
+		Fix for a very strange problem when mod_custom only on the sidebar module
+		position returns double title. Seems to be an issue with Joomla! core.
+	 */
+	if(stripos($module->content, 'box-wrap') !== FALSE) {
+		echo $module->content;
+		return true;
+	}
 	
 	if (!empty ($module->content)) {		
 		$modnum_class = '';

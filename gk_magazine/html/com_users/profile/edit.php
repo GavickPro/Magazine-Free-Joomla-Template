@@ -9,9 +9,10 @@
 
 defined('_JEXEC') or die;
 
+JHtml::_('behavior.noframes');
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.tooltip');
-JHtml::_('behavior.formvalidation');
+JHtml::_('behavior.formvalidator');
 //load user_profile plugin language
 $lang = JFactory::getLanguage();
 $lang->load( 'plg_user_profile', JPATH_ADMINISTRATOR );

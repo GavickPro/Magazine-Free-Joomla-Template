@@ -49,7 +49,7 @@ JHtml::_('behavior.caption');
 		<?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
 		<div>
 			<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
-			<img src="<?php echo $this->category->getParams()->get('image'); ?>"/>
+			<img src="<?php echo $this->category->getParams()->get('image'); ?>" alt="<?php echo htmlspecialchars($this->category->getParams()->get('image_alt')); ?>" />
 			<?php endif; ?>
 			<?php if ($this->params->get('show_description') && $this->category->description) : ?>
 			<?php echo JHtml::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
@@ -94,11 +94,8 @@ JHtml::_('behavior.caption');
 	<?php if (!empty($this->intro_items)) : ?>
 		<?php foreach ($this->intro_items as $key => &$item) : ?>
 			<?php
-				$key= ($key-$leadingcount)+1;
-				$rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
-				$row = $counter / $this->columns ;
-		
-				if ($rowcount==1) : ?>
+			    $rowcount = ((int) $key % (int) $this->columns) + 1;            
+			    if ($rowcount==1) : ?>
 			<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 			<?php endif; ?>
 			<div class="column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">

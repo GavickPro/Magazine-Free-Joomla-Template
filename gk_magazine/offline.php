@@ -42,6 +42,9 @@ $logo_slogan = $templateParams->get('logo_slogan', '');
 	<jdoc:include type="head" />
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/css/system/offline.style<?php echo $template_style; ?>.css" type="text/css" />
+	<?php if($templateParams->get('css_override')) : ?>
+	<link rel="stylesheet" href="<?php echo JURI::base(); ?>templates/<?php echo $this->template; ?>/css/override.css" type="text/css" />
+	<?php endif; ?>
 </head>
 <body>
 	<div id="gkPage">

@@ -98,6 +98,9 @@ class GKTemplateLayout {
     	}
     	// set CSS code for the messages
     	//$this->API->addCSSRule('#system-message-container { margin: 0 -'.$body_padding.'px; }');
+    	if($this->API->get("css_override", '0')) {
+    		echo '<link rel="stylesheet" href="'.($this->API->URLtemplate()).'/css/override.css" />' . "\n";
+    	}
     }
     
     public function getSidebarWidthOverride() {
@@ -145,20 +148,13 @@ class GKTemplateLayout {
         }   
     }
     
-    // function to check if the page is frontpage
-    function isFrontpage() {
-        // get all known languages
-        $languages	= JLanguage::getKnownLanguages();
-        $menu = JSite::getMenu();
-        
-        foreach($languages as $lang){
-            if ($menu->getActive() == $menu->getDefault($lang['tag'])) {
-            	return true;
-            }
-        }
-    	   
-        return false;    
-    }
+	// function to check if the page is frontpage
+	function isFrontpage() {
+	    $app = JFactory::getApplication();
+	    $menu = $app->getMenu();
+	    $lang = JFactory::getLanguage();
+	    return ($menu->getActive() == $menu->getDefault($lang->getTag()));    
+	}
 
 	public function addTemplateFavicon() {
 		$favicon_image = $this->API->get('favicon_image', '');
@@ -170,6 +166,19 @@ class GKTemplateLayout {
 		}
 		
 		$this->API->addFavicon($favicon_image);
+	}
+	
+	public function addTouchIcon() {
+	     $touch_image = $this->API->get('touch_image', '');
+	    
+	     if($touch_image == '') {
+	          $touch_image = $this->API->URLtemplate() . '/images/touch-device.png';
+	     } else {
+	          $touch_image = $this->API->URLbase() . $touch_image;
+	     }
+	     $doc = JFactory::getDocument();
+	     $doc->addCustomTag('<link rel="apple-touch-icon" href="'.$touch_image.'">');
+	     $doc->addCustomTag('<link rel="apple-touch-icon-precomposed" href="'.$touch_image.'">');
 	}
 	
 	public function getTemplateStyle($type) {

@@ -52,7 +52,21 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		<?php endif; ?>
 	
 		<table>
-			<?php if ($this->params->get('show_headings')) :?>
+		<?php
+			$headerTitle    = '';
+			$headerDate     = '';
+			$headerAuthor   = '';
+			$headerHits     = '';
+			$headerEdit     = '';
+		?>
+			<?php if ($this->params->get('show_headings')) : ?>
+			<?php
+				$headerTitle    = 'headers="categorylist_header_title"';
+				$headerDate     = 'headers="categorylist_header_date"';
+				$headerAuthor   = 'headers="categorylist_header_author"';
+				$headerHits     = 'headers="categorylist_header_hits"';
+				$headerEdit     = 'headers="categorylist_header_edit"';
+			?>
 			<thead>
 				<tr>
 					<th class="list-title" id="tableOrdering">
@@ -94,20 +108,20 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<tr class="cat-list-row<?php echo $i % 2; ?>" >
 				<?php endif; ?>
 					<?php if (in_array($article->access, $this->user->getAuthorisedViewLevels())) : ?>
-						<td class="list-title">
+						<td <?php echo $headerTitle; ?> class="list-title">
 							<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid)); ?>">
 								<?php echo $this->escape($article->title); ?></a>
 						</td>
 	
 						<?php if ($this->params->get('list_show_date')) : ?>
-						<td class="list-date">
+						<td <?php echo $headerDate; ?> class="list-date">
 							<?php echo JHtml::_('date', $article->displayDate, $this->escape(
 							$this->params->get('date_format', JText::_('DATE_FORMAT_LC3')))); ?>
 						</td>
 						<?php endif; ?>
 	
 						<?php if ($this->params->get('list_show_author', 1) && !empty($article->author )) : ?>
-						<td class="list-author">
+						<td <?php echo $headerAuthor; ?> class="list-author">
 							<?php $author =  $article->author ?>
 							<?php $author = ($article->created_by_alias ? $article->created_by_alias : $author);?>
 	
@@ -125,13 +139,13 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 						<?php endif; ?>
 	
 						<?php if ($this->params->get('list_show_hits', 1)) : ?>
-						<td class="list-hits">
+						<td <?php echo $headerHits; ?> class="list-hits">
 							<?php echo $article->hits; ?>
 						</td>
 						<?php endif; ?>
 	
 					<?php else : // Show unauth links. ?>
-						<td>
+						<td <?php echo $headerEdit; ?>>
 							<?php
 								echo $this->escape($article->title).' : ';
 								$menu		= JFactory::getApplication()->getMenu();

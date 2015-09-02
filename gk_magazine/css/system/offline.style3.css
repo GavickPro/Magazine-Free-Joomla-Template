@@ -85,7 +85,7 @@ a:focus {
 
 #gkLogo img {
 	display: block;
-	margin: 0;
+	margin: 0 auto;
 }
 
 #gkLogo.cssLogo {

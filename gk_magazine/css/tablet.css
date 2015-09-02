@@ -78,23 +78,23 @@ body {
 }
 
 /* Limitation suffixes */
-.box.onlydesktop {
+.onlydesktop {
 	display: none!important;
 }
 
-.box.notablet {
+.notablet {
 	display: none!important;
 }
-.box.nomobile {
+.nomobile {
 	display: block!important;
 }
-.box.onlytablet {
+.onlytablet {
 	display: block!important;
 }
-.box.onlymobile {
+.onlymobile {
 	display: none!important;
 }
-.box.notablet.nomobile {
+.notablet.nomobile {
 	display: none!important;
 }
 

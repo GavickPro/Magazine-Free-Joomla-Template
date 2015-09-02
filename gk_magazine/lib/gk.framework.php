@@ -90,11 +90,7 @@ class GKTemplate {
         $this->layout = new GKTemplateLayout($this);
         // get the layout
         if(!$embed_mode) {   
-    		if ($this->browser->get('browser') == 'facebook') { // facebook mode
-				$this->getLayout('facebook');
-			} else { // normal mode
-				$this->getLayout('normal');
-    		}
+    		$this->getLayout('normal');
         }
         // parse FB and Twitter buttons
         $this->social->socialApiParser($embed_mode);
@@ -123,36 +119,29 @@ class GKTemplate {
    
     // function to get layout for specified mode
     public function getLayout($mode) {
-        // check layout saved in cookie
-		if ($mode == 'facebook') { // facebook mode
-			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('facebook_layout', 'facebook') . '.php';
-			if (is_file($layoutpath)) include ($layoutpath);
-			else echo 'Facebook layout doesn\'t exist!';
-		} else { // normal mode
-			// check the override
-			$is_overrided = $this->getLayoutOverride();
-			// if current page is overrided
-			if ($is_overrided !== false) {
-				$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $is_overrided . '.php';
-				if (is_file($layoutpath)) {
-					include ($layoutpath);
-				} else {	
-					$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('default_layout', 'default') . '.php';
-					if (is_file($layoutpath)) {
-						include ($layoutpath);
-					} else {
-						echo 'Default layout doesn\'t exist!';
-					}
-				}
-			} else { // else - load default layout
+		// check the override
+		$is_overrided = $this->getLayoutOverride();
+		// if current page is overrided
+		if ($is_overrided !== false) {
+			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $is_overrided . '.php';
+			if (is_file($layoutpath)) {
+				include ($layoutpath);
+			} else {	
 				$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('default_layout', 'default') . '.php';
 				if (is_file($layoutpath)) {
-					include ($layoutpath);	
+					include ($layoutpath);
 				} else {
 					echo 'Default layout doesn\'t exist!';
 				}
-			}	
-    	}
+			}
+		} else { // else - load default layout
+			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('default_layout', 'default') . '.php';
+			if (is_file($layoutpath)) {
+				include ($layoutpath);	
+			} else {
+				echo 'Default layout doesn\'t exist!';
+			}
+		}
     }
    
     // function to get layout override

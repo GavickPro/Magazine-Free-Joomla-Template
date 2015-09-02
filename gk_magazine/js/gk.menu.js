@@ -80,6 +80,8 @@ jQuery(document).ready(function() {
 							var winWidth = jQuery(window).outerWidth();
 							var winScroll = jQuery(window).scrollLeft();
 								
+							content.addClass('active');
+							
 							if(pos.left + prevw > (winWidth + winScroll)) {
 								var diff = (winWidth + winScroll) - (pos.left + prevw) - 5;
 								var base = parseInt(content.css('margin-left'));
@@ -128,7 +130,7 @@ jQuery(document).ready(function() {
 									) {
 										content.css('overflow', 'visible');
 									}
-									
+									content.removeClass('active');
 									content.css('display', 'none');
 								}
 							);

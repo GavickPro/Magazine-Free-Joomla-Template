@@ -13,10 +13,10 @@ defined('_JEXEC') or die;
 		</div>
 		<?php endif; ?>
 		
-		<p id="gkCopyrights">Free <a href="http://www.gavick.com/joomla-templates.html" title="Joomla Templates">Joomla Template</a> designed by <a href="http://www.gavick.com">GavickPro</a></p>
+		<p id="gkCopyrights">Free <a href="https://www.gavick.com/joomla-templates" title="Best colllection of Joomla Templates">Free Joomla Template by <a href="https://www.gavick.com">GavickPro.com</a>.</a></p>
 		
 		<?php if($this->API->get('framework_logo', '0') == '1') : ?>
-		<a href="http://www.gavick.com" id="gkFrameworkLogo" title="Gavern Framework">Gavern Framework</a>
+		<a href="http://www.gavick.com" rel="nofollow" id="gkFrameworkLogo" title="Gavern Framework">Gavern Framework</a>
 		<?php endif; ?>
 	</div>
 </footer>

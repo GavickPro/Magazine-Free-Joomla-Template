@@ -31,7 +31,7 @@ defined('_JEXEC') or die;
 		</dl>
 		<?php endif; ?>
 
-		<?php if(count($item->getChildren()) > 0) :
+		<?php if(count($item->getChildren()) > 0 && $this->maxLevelcat > 1) :
 			$this->items[$item->id] = $item->getChildren();
 			$this->parent = $item;
 			$this->maxLevelcat--;
