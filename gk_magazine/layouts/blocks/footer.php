@@ -3,6 +3,10 @@
 // No direct access.
 defined('_JEXEC') or die;
 
+$app    = JFactory::getApplication();
+$menu 	= $app->getMenu();
+$lang 	= JFactory::getLanguage();
+
 ?>
 
 <footer id="gkFooter" class="gkPage">
@@ -13,14 +17,14 @@ defined('_JEXEC') or die;
 		</div>
 		<?php endif; ?>
 		
-		<?php if($this->API->get('copyrights', '') !== '') : ?>
-		<p id="gkCopyrights"><?php echo $this->API->get('copyrights', ''); ?></p>
+		<?php if ($menu->getActive() == $menu->getDefault($lang->getTag())) : ?> 
+				<p id="gkCopyrights">Joomla Templates &amp; WordPress Themes - <a href="https://www.gavick.com/">GavickPro</a></p>
 		<?php else : ?>
-		<p id="gkCopyrights">Template Design &copy; <a href="//www.gavick.com" title="Joomla Templates">Joomla Templates</a> GavickPro. All rights reserved.</p>
+				<p id="gkCopyrights">Joomla Templates &amp; WordPress Themes - GavickPro</p>
 		<?php endif; ?>
 		
 		<?php if($this->API->get('framework_logo', '0') == '1') : ?>
-		<a href="//gavick.com" id="gkFrameworkLogo" title="Gavern Framework">Gavern Framework</a>
+		<a href="https://www.gavick.com/" rel="nofollow" id="gkFrameworkLogo" title="Gavern Framework">Gavern Framework</a>
 		<?php endif; ?>
 	</div>
 </footer>
