@@ -276,9 +276,11 @@ if(!function_exists('replaceurl')){
 	function replaceurl($matches) {
         $url = str_replace(array('"', '\''), '', $matches[1]);
         global $current_css_url;
-        $url = converturl($url, $current_css_url);
+        if(stripos($url, 'data:image') === FALSE) {
+            $url = converturl($url, $current_css_url);
+        }
         return "url('$url')";
-    }
+}
 }
 if(!function_exists('converturl')){
 	function converturl($url, $cssurl) {

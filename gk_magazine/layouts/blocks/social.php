@@ -10,11 +10,7 @@ $view = JRequest::getCmd('view', '');
 <?php if($this->API->get('fb_login', '0') == 1 || ($this->API->get('fb_like', '0') == 1 && $option == 'com_content' && $view == 'article')) : ?>
 <gavern:social>
 <div id="gkfb-root"></div>
-<?php if($this->API->get('cookie_consent', '0') == 0) : ?>
 <script type="text/javascript">
-<?php else : ?>
-<script type="text/plain" class="cc-onconsent-social">
-<?php endif; ?>
 
 //<![CDATA[
    	window.fbAsyncInit = function() {
@@ -92,37 +88,25 @@ $view = JRequest::getCmd('view', '');
 <!-- +1 button -->
 <?php if($this->API->get('google_plus', '1') == 1 && $option == 'com_content' && $view == 'article') : ?>
 <gavern:social>
-<?php if($this->API->get('cookie_consent', '0') == 0) : ?>
 <script type="text/javascript">
-<?php else : ?>
-<script type="text/plain" class="cc-onconsent-social">
-<?php endif; ?>
   window.___gcfg = {
     lang: '<?php echo $this->API->get("google_plus_lang", "en-GB"); ?>',
     parsetags: 'onload'
   };
 </script>
-<script src="//apis.google.com/js/platform.js" <?php if($this->API->get('cookie_consent', '0') == 1) : ?>type="text/plain" class="cc-onconsent-social"<?php endif; ?> async defer></script>
+<script src="//apis.google.com/js/platform.js" async defer></script>
 </gavern:social>
 <?php endif; ?>
 
 <!-- twitter -->
 <?php if($this->API->get('tweet_btn', '0') == 1 && $option == 'com_content' && $view == 'article') : ?>
-     <?php if($this->API->get('cookie_consent', '0') == 0) : ?>
      <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-     <?php else : ?>
-     <script type="text/plain" class="cc-onconsent-social" src="//platform.twitter.com/widgets.js"></script>
-     <?php endif; ?>
 <?php endif; ?>
 
 
 <!-- Pinterest script --> 
 <?php if($this->API->get('pinterest_btn', '1') == 1 && $option == 'com_content' && $view == 'article') : ?><gavern:social>
-<?php if($this->API->get('cookie_consent', '0') == 0) : ?>
 <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-<?php else : ?>
-<script type="text/plain" class="cc-onconsent-social" src="//assets.pinterest.com/js/pinit.js"></script>
-<?php endif; ?>
 
 </gavern:social>
 <?php endif; ?>

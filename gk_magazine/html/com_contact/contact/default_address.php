@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
  */
 ?>
 <?php if (($this->params->get('address_check') > 0) &&  ($this->contact->address || $this->contact->suburb  || $this->contact->state || $this->contact->country || $this->contact->postcode)) : ?>
-	<div class="contact-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+	<div class="contact-address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
 	<?php if ($this->params->get('address_check') > 0) : ?>
 		<span class="<?php echo $this->params->get('marker_class'); ?>" >
 			<?php echo $this->params->get('marker_address'); ?>

@@ -664,7 +664,7 @@ section.contentpane iframe {
 	display: none;
 }
 
-#system-message p {
+#system-message dd {
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	-o-box-sizing: border-box;
@@ -677,11 +677,11 @@ section.contentpane iframe {
 	padding: 10px 10px 12px 86px;
 }
 
-#system-message .alert-error p {
+#system-message dd.error {
 	background: #FE724D url('../images/style1/typography/warning.png') no-repeat 0 1px;
 }
 
-#system-message div.alert-notice p {
+#system-message dd.notice {
 	background: #4D90FE url('../images/style1/typography/tips.png') no-repeat 0 1px;
 }
 

@@ -33,7 +33,7 @@ JHtml::_('behavior.framework');
 			</li>
 			<?php elseif ($params->get('show_create_date')) : ?>
 			<li class="created">
-				<time pubdate="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
+				<time pubdate="<?php echo JHtml::_('date', $this->item->created, DATE_W3C); ?>">
 					<?php echo JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2')); ?>
 				</time>
 			</li>

@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 				<?php if(isset($this->category) && ( $this->params->get('catImage') || $this->params->get('catTitle') || ($this->params->get('catDescription')  && $this->category->description != '' ) || $this->category->event->K2CategoryDisplay )): ?>
 				<div class="itemsCategory">
 						<?php if(isset($this->addLink)): ?>
-						<a class="catItemAddLink modal" rel="{handler:'iframe',size:{x:990,y:650}}" href="<?php echo $this->addLink; ?>">
+						<a data-k2-modal="edit" href="<?php echo $this->addLink; ?>">
 							<?php echo JText::_('K2_ADD_A_NEW_ITEM_IN_THIS_CATEGORY'); ?>
 						</a>
 						<?php endif; ?>
@@ -177,7 +177,7 @@ defined('_JEXEC') or die;
 								<?php
 						// Load category_item_links.php by default
 						$this->item=$item;
-						echo $this->loadTemplate('item_links');
+						echo $this->loadTemplate('item');
 					?>
 								<?php endforeach; ?>
 						</ul>

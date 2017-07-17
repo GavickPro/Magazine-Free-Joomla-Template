@@ -310,6 +310,8 @@ span#formLog {
 .itemLinks .itemAttachmentsBlock ul li a span { font-weight: normal; font-size: 11px;}
 .itemLinks .itemSocialSharing > div {
 	float: left;
+	line-height: 1;
+    margin-right: 20px;
 }
 .itemAuthorBlock {
 	-webkit-box-sizing: border-box;
@@ -981,3 +983,9 @@ article header .itemRatingBlock > div {
 .itemLinks .itemTagsBlock, 
 .itemLinks .itemSocialSharing { overflow: visible; }
 div.itemSocialSharing { overflow: visible!important }
+
+/* 2.7.0 update */
+.mfp-image-holder .mfp-close,
+.mfp-iframe-holder .mfp-close {
+	background: transparent;
+}

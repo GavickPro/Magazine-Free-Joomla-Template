@@ -30,7 +30,7 @@ defined('_JEXEC') or die;
 										<?php if($item->params->get('genericItemDateCreated')): ?>
 										<li class="itemDate">
 											<time datetime="<?php echo JHtml::_('date', $item->created, JText::_(DATE_W3C)); ?>">
-												<?php echo JHTML::_('date', $item->created , JText::_('F j, Y')); ?>
+												<?php echo JHTML::_('date', $item->created , JText::_('TPL_GK_MAGAZINE_DATE_FORMAT')); ?>
 											</time>
 										</li>
 										<?php endif; ?>

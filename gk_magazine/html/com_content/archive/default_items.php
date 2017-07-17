@@ -9,7 +9,7 @@ $params = &$this->params;
 ?>
 
 <?php foreach ($this->items as $i => $item) : ?>
-<article itemscope itemtype="http://schema.org/Article">	
+<article itemscope itemtype="https://schema.org/Article">	
 	<header>
 		<h1 itemprop="name">
 			<?php if ($params->get('link_titles')): ?>
@@ -54,7 +54,7 @@ $params = &$this->params;
 				<?php endif; ?>
 		
 				<?php if ($params->get('show_author') && !empty($item->author )) : ?>
-				<li class="createdby" itemprop="author" itemscope itemtype="http://schema.org/Person">
+				<li class="createdby" itemprop="author" itemscope itemtype="https://schema.org/Person">
 				<?php $author =  $item->author; ?>
 				<?php $author = ($item->created_by_alias ? $item->created_by_alias : $author);?>
 					<span itemprop="name">

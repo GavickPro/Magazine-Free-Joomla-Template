@@ -52,7 +52,7 @@ $lang->load( 'plg_user_profile', JPATH_ADMINISTRATOR );
 		<div>
 			<button type="submit" class="validate"><span><?php echo JText::_('JSUBMIT'); ?></span></button>
 			<?php echo JText::_('COM_USERS_OR'); ?>
-			<a href="<?php echo JRoute::_(''); ?>" title="<?php echo JText::_('JCANCEL'); ?>"><?php echo JText::_('JCANCEL'); ?></a>
+			<a href="<?php echo JRoute::_('index.php?option=com_users&view=profile'); ?>" title="<?php echo JText::_('JCANCEL'); ?>"><?php echo JText::_('JCANCEL'); ?></a>
 
 			<input type="hidden" name="option" value="com_users" />
 			<input type="hidden" name="task" value="profile.save" />

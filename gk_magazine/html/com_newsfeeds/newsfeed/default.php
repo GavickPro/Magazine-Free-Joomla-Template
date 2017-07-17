@@ -11,50 +11,59 @@ defined('_JEXEC') or die;
 		<?php endif; ?>
 		
 		<h2>
-			<a href="<?php echo $this->newsfeed->channel['link']; ?>" target="_blank">
-				<?php echo str_replace('&apos;', "'", $this->newsfeed->channel['title']); ?></a>
+			<a href="<?php echo $this->item->link; ?>" target="_blank">
+				<?php echo str_replace('&apos;', "'", $this->item->name); ?></a>
 		</h2>
 	
 		<?php if ($this->params->get('show_feed_description')) : ?>
 		<div>
-			<?php echo str_replace('&apos;', "'", $this->newsfeed->channel['description']); ?>
+			<?php echo str_replace('&apos;', "'", $this->item->description); ?>
 		</div>
 		<?php endif; ?>
+		
+		
+		<?php if ($this->params->get('show_tags', 1)) : ?>
+			<span class="tags-label"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER'); ?></span> 
+			<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+			<?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
+		<?php endif; ?>
 	</header>
-
-	<?php if (isset($this->newsfeed->image['url']) && isset($this->newsfeed->image['title']) && $this->params->get('show_feed_image')) : ?>
+	
+	<!-- Show Image -->
+	<?php if (isset($this->rssDoc->image) && isset($this->rssDoc->imagetitle) && $this->params->get('show_feed_image')) : ?>
 	<div class="feed-img">
-		<img src="<?php echo $this->newsfeed->image['url']; ?>" alt="<?php echo $this->newsfeed->image['title']; ?>" />
+		<img src="<?php echo $this->rssDoc->image; ?>" alt="<?php echo $this->rssDoc->image->description; ?>" />
 	</div>
 	<?php endif; ?>
 	
-	<?php if(count($this->newsfeed->items)) : ?>
-	<ol>
-	<?php foreach ($this->newsfeed->items as $item) :  ?>
-		<li>
-			<?php if (!is_null($item->get_link())) : ?>
-			<a href="<?php echo $item->get_link(); ?>" target="_blank">
-					<?php echo $item->get_title(); ?></a>
+	<?php if(!empty($this->rssDoc[0])) : ?>
+	<div>
+		<?php for ($i = 0; $i < $this->item->numarticles; $i++) : ?>
+		<div>
+			<?php if (!is_null($this->rssDoc[$i]->uri)) : ?>
+			<h2>
+				<a href="<?php echo $this->rssDoc[$i]->uri; ?>" target="_blank">
+					<?php echo $this->rssDoc[$i]->title; ?>
+				</a>
+			</h2>
 			<?php endif; ?>
-			<?php if ($this->params->get('show_item_description') && $item->get_description()) : ?>
+			
+			<?php if ($this->params->get('show_item_description')) : ?>
 			<div class="feed-item-description">
-				<?php $text = $item->get_description();
-				if($this->params->get('show_feed_image', 0) == 0)
-				{
-					$text = JFilterOutput::stripImages($text);
-				}
-				$text = JHtml::_('string.truncate', $text, $this->params->get('feed_character_count'));
+				<?php 
+					$text = !empty($this->rssDoc[$i]->content) || !is_null($this->rssDoc[$i]->content) ? $this->rssDoc[$i]->content : $this->rssDoc[$i]->description;
+					if($this->params->get('show_feed_image', 0) == 0) {
+						$text = JFilterOutput::stripImages($text);
+					}
+					$text = JHtml::_('string.truncate', $text, $this->params->get('feed_character_count'));
 					echo str_replace('&apos;', "'", $text);
 				?>
 
 			</div>
 			<?php endif; ?>
-			<?php if ($this->params->get('show_tags', 1)) : ?>
-		          <?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
-		          <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
-		     <?php endif; ?>
-		</li>
-	<?php endforeach; ?>
-	</ol>
+		</div>
+		<hr />
+		<?php endfor; ?>
+	</div>
 	<?php endif; ?>
 </section>

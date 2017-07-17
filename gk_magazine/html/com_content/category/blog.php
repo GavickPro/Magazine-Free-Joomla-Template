@@ -6,7 +6,7 @@ defined('_JEXEC') or die;
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 JHtml::_('behavior.caption'); 
 ?>
-<section class="blog<?php echo $this->pageclass_sfx;?>" itemscope itemtype="http://schema.org/Blog">
+<section class="blog<?php echo $this->pageclass_sfx;?>" itemscope itemtype="https://schema.org/Blog">
 	<?php 
 		if(
 			$this->params->get('show_page_heading', 1) ||
@@ -74,7 +74,7 @@ JHtml::_('behavior.caption');
 	<?php if (!empty($this->lead_items)) : ?>
 	<div class="leading">
 		<?php foreach ($this->lead_items as &$item) : ?>
-			<div itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+			<div itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
 			<?php
 				$this->item = &$item;
 				echo $this->loadTemplate('item');
@@ -96,9 +96,9 @@ JHtml::_('behavior.caption');
 			<?php
 			    $rowcount = ((int) $key % (int) $this->columns) + 1;            
 			    if ($rowcount==1) : ?>
-			<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+			<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
 			<?php endif; ?>
-			<div class="column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+			<div class="column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
 				<?php
 					$this->item = &$item;
 					echo $this->loadTemplate('item');

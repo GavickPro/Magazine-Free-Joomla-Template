@@ -12,8 +12,16 @@ class GKTemplateUtilities {
     	$this->parent = $parent;
     }
     //
-    public function overrideArrayParse($data) {
+    public function overrideArrayParse($data, $duplicates = false) {
         $results = array();
+        // for duplicates we need to store keys and values separately
+        if($duplicates) {
+        	$results = array(
+        		"keys" => array(),
+        		"values" => array()
+        	);
+        }
+        
         // exploding settings
         $exploded_data = explode("\r\n", $data);
         // parsing
@@ -26,9 +34,13 @@ class GKTemplateUtilities {
 	            	$key = $pair[0];
 	            	$value = $pair[1];
 	            	// checking existing of key in config array
-	            	if (!isset($results[$key])) {
+	            	if (!$duplicates && !isset($results[$key])) {
 	            	    // setting value for key
 	            	    $results[$key] = $value;
+	            	} elseif($duplicates) {
+	            		// storing keys and values separately
+	            		$results['keys'][] = $key;
+	            		$results['values'][] = $value;
 	            	}
 	            }
             }

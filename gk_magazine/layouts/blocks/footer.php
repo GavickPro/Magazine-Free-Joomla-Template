@@ -18,7 +18,8 @@ $lang 	= JFactory::getLanguage();
 		<?php endif; ?>
 		
 		<?php if ($menu->getActive() == $menu->getDefault($lang->getTag())) : ?> 
-				<p id="gkCopyrights">Joomla Templates &amp; WordPress Themes - <a href="https://www.gavick.com/">GavickPro</a></p>
+				<p id="gkCopyrights">Joomla &amp; WordPress Theme designed by
+               <a href="https://www.gavick.com/joomla-templates" title="Joomla template designed by GavickPro" rel="nofollow">GavickPro</a></p>
 		<?php else : ?>
 				<p id="gkCopyrights">Joomla Templates &amp; WordPress Themes - GavickPro</p>
 		<?php endif; ?>

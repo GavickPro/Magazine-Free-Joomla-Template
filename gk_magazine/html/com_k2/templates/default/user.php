@@ -70,14 +70,14 @@ $user = JFactory::getUser();
 										<?php endif; ?>
 										<?php if($this->params->get('userItemDateCreated')): ?>
 										<li class="itemDate">
-												<time datetime="<?php echo JHtml::_('date', $item->created, JText::_(DATE_W3C)); ?>"> <?php echo JHTML::_('date', $item->created , JText::_('F j, Y')); ?> </time>
+												<time datetime="<?php echo JHtml::_('date', $item->created, JText::_(DATE_W3C)); ?>"> <?php echo JHTML::_('date', $item->created , JText::_('TPL_GK_MAGAZINE_DATE_FORMAT')); ?> </time>
 										</li>
 										<?php endif; ?>
 										
 										<?php if(isset($item->editLink)): ?>
 										<!-- Item edit link -->
 										<li class="userItemEditLink">
-										   <a class="modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $item->editLink; ?>">
+										   <a data-k2-modal="edit" href="<?php echo $item->editLink; ?>">
 										      <?php echo JText::_('K2_EDIT_ITEM'); ?>
 										   </a>
 										</li>

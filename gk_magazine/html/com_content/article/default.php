@@ -72,7 +72,7 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 	or ($params->get('show_hits')));
 ?>
 
-<article class="item-page<?php echo $this->pageclass_sfx?>" itemscope itemtype="http://schema.org/Article">
+<article class="item-page<?php echo $this->pageclass_sfx?>" itemscope itemtype="https://schema.org/Article">
 	<meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />
 	<?php if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item->paginationposition && $this->item->paginationrelative) : ?>
 	<?php echo $this->item->pagination; ?>
@@ -99,7 +99,7 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 			</li>
 			<?php elseif ($params->get('show_create_date')) : ?>
 			<li class="created">
-				<time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>"  itemprop="dateCreated">
+				<time datetime="<?php echo JHtml::_('date', $this->item->created, DATE_W3C); ?>"  itemprop="dateCreated">
 					<?php echo JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2')); ?>
 				</time>
 			</li>
@@ -131,7 +131,7 @@ $useDefList = (($params->get('show_author')) or ($params->get('show_category')) 
 			<?php endif; ?>
 
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-			<li class="createdby" itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<li class="createdby" itemprop="author" itemscope itemtype="https://schema.org/Person">
 				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
 				<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 				<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>

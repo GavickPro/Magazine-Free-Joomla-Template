@@ -110,7 +110,7 @@ class GKTemplate {
         $this->config = new JObject();
         // set layout override param
         $this->config->set('layout_override', $this->utilities->overrideArrayParse($this->API->get('layout_override', '')));
-        $this->config->set('suffix_override', $this->utilities->overrideArrayParse($this->API->get('suffix_override', '')));
+        $this->config->set('suffix_override', $this->utilities->overrideArrayParse($this->API->get('suffix_override', ''), true));
         $this->config->set('module_override', $this->utilities->overrideArrayParse($this->API->get('module_override', '')));  
         $this->config->set('tools_override', $this->utilities->overrideArrayParse($this->API->get('tools_for_pages', '')));
     	$this->config->set('mootools_override', $this->utilities->overrideArrayParse($this->API->get('mootools_for_pages', '')));
@@ -192,24 +192,28 @@ class GKTemplate {
 	}
 
 	// function to get layout override
-	public function getSuffixOverride() {
-	    // get current ItemID
-	    $ItemID = JRequest::getInt('Itemid');
-	    // get current option value
-	    $option = JRequest::getCmd('option');
-	    // override array
-	    $suffix_overrides = $this->config->get('suffix_override');
-	    // check the config
-	    if (isset($suffix_overrides[$ItemID])) {
-	        return $suffix_overrides[$ItemID];
-	    } else {
-	        if (isset($suffix_overrides[$option])) {
-	            return $suffix_overrides[$option];
-	        } else {
-	            return false;
-	        }
-	    }
-	}
+    public function getSuffixOverride() {
+        // storage for the results
+        $result = array();
+        // get current ItemID
+        $ItemID = JRequest::getInt('Itemid');
+        // get current option value
+        $option = JRequest::getCmd('option');
+        // override array
+        $suffix_overrides = $this->config->get('suffix_override');
+        // check the config
+        for($i = 0; $i < count($suffix_overrides['keys']); $i++) {
+            if($suffix_overrides['keys'][$i] == $ItemID || $suffix_overrides['keys'][$i] == $option) {
+                $result[] = $suffix_overrides['values'][$i];
+            }
+        }
+        
+        if(count($result) > 0) {
+            return join(' ', $result);
+        }
+        
+        return false;
+    }
 	
 	// function to get tools override
     public function getToolsOverride() {

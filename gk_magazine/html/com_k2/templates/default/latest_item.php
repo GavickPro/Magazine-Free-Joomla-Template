@@ -45,8 +45,8 @@ defined('_JEXEC') or die;
 	  		
 	  		<?php if($this->item->params->get('latestItemDateCreated')): ?>
 	  		<li class="itemDate">
-	  			<time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
-	  				<?php echo JHTML::_('date', $this->item->created, JText::_('F j, Y')); ?>
+	  			<time datetime="<?php echo JHtml::_('date', $this->item->created, DATE_W3C); ?>">
+	  				<?php echo JHTML::_('date', $this->item->created, JText::_('TPL_GK_MAGAZINE_DATE_FORMAT')); ?>
 	  			</time>
 	  		</li>
 	  		<?php endif; ?>

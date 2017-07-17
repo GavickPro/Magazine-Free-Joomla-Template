@@ -23,7 +23,7 @@ $fblang   = $gkparams->get('fb_lang', 'en_US');
 <?php endif; ?>
 <article id="k2Container" class="itemView<?php echo $k2ContainerClasses; ?>"> <?php echo $this->item->event->BeforeDisplay; ?> <?php echo $this->item->event->K2BeforeDisplay; ?>
 			<?php if(isset($this->item->editLink)): ?>
-			<a class="itemEditLink modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->item->editLink; ?>"><?php echo JText::_('K2_EDIT_ITEM'); ?></a>
+			<a data-k2-modal="edit" href="<?php echo $this->item->editLink; ?>"><?php echo JText::_('K2_EDIT_ITEM'); ?></a>
 			<?php endif; ?>
 			<header>
 					<?php if(
@@ -40,7 +40,7 @@ $fblang   = $gkparams->get('fb_lang', 'en_US');
 						<ul>
 									<?php if($this->item->params->get('itemDateCreated')): ?>
 									<li class="itemDate">
-												<time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>"> <?php echo JHTML::_('date', $this->item->created, JText::_('F j, Y')); ?> </time>
+												<time datetime="<?php echo JHtml::_('date', $this->item->created, DATE_W3C); ?>"> <?php echo JHTML::_('date', $this->item->created, JText::_('TPL_GK_MAGAZINE_DATE_FORMAT')); ?> </time>
 									</li>
 									<?php endif; ?>
 									<?php if($params->get('itemAuthor')): ?>
@@ -103,7 +103,7 @@ $fblang   = $gkparams->get('fb_lang', 'en_US');
 			<?php echo $this->item->event->AfterDisplayTitle; ?> <?php echo $this->item->event->K2AfterDisplayTitle; ?>
 			<?php if($params->get('itemImage') && !empty($this->item->image)): ?>
 			<div class="itemImageBlock">
-						<a class="itemImage modal" rel="{handler: 'image'}" href="<?php echo $this->item->imageXLarge; ?>" title="<?php echo JText::_('K2_CLICK_TO_PREVIEW_IMAGE'); ?>"> <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" /> </a>
+						<a data-k2-modal="image" href="<?php echo $this->item->imageXLarge; ?>" title="<?php echo JText::_('K2_CLICK_TO_PREVIEW_IMAGE'); ?>"> <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" /> </a>
 						<?php if($params->get('itemImageMainCaption') && !empty($this->item->image_caption)): ?>
 						<span class="itemImageCaption"><?php echo $this->item->image_caption; ?></span>
 						<?php endif; ?>
@@ -205,48 +205,30 @@ $fblang   = $gkparams->get('fb_lang', 'en_US');
 									<?php endif; ?>
 									<?php if($params->get('itemTwitterButton',1) || $params->get('itemFacebookButton',1) || $params->get('itemGooglePlusOneButton',1)): ?>
 									<div class="itemSocialSharing">
-												<?php if($params->get('itemTwitterButton',1)): ?>
-												<div class="itemTwitterButton">
-															<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal"<?php if($params->get('twitterUsername')): ?> data-via="<?php echo $params->get('twitterUsername'); ?>"<?php endif; ?>><?php echo JText::_('K2_TWEET'); ?></a> 
-															<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-												</div>
-												<?php endif; ?>
-												<?php if($params->get('itemFacebookButton',1)): ?>
-												<div class="itemFacebookButton">
-															<script type="text/javascript">                                                         window.addEvent('load', function(){
-									      (function(){
-									                  if(document.id('fb-auth') == null) {
-									                  var root = document.createElement('div');
-									                  root.id = 'fb-root';
-									                  $$('.itemFacebookButton')[0].appendChild(root);
-									                  (function(d, s, id) {
-									                    var js, fjs = d.getElementsByTagName(s)[0];
-									                    if (d.getElementById(id)) {return;}
-									                    js = d.createElement(s); js.id = id;
-									                    js.src = document.location.protocol + "//connect.facebook.net/<?php echo $fblang; ?>/all.js#xfbml=1";
-									                    fjs.parentNode.insertBefore(js, fjs);
-									                  }(document, 'script', 'facebook-jssdk')); 
-									              }
-									      }());
-									  });
-									</script>
-															<div class="fb-like" data-send="false" data-width="260" data-show-faces="true">
-															</div>
-												</div>
-												<?php endif; ?>
-												<?php if($params->get('itemGooglePlusOneButton',1)): ?>
-												<div class="itemGooglePlusOneButton">
-															<g:plusone annotation="inline" width="120"></g:plusone>
-															<script type="text/javascript">
-		                          (function() {
-		                            window.___gcfg = {lang: 'en'}; // Define button default language here
-		                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		                            po.src = 'https://apis.google.com/js/plusone.js';
-		                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		                          })();
-		                    </script>
-												</div>
-												<?php endif; ?>
+											<?php if($this->item->params->get('itemTwitterButton',1)): ?>
+										<!-- Twitter Button -->
+										<div class="itemTwitterButton">
+											<a href="https://twitter.com/share" class="twitter-share-button" data-via="<?php if($this->item->params->get('twitterUsername')) echo $this->item->params->get('twitterUsername'); ?>"><?php echo JText::_('K2_TWEET'); ?></a>
+											<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+										</div>
+										<?php endif; ?>
+
+										<?php if($this->item->params->get('itemFacebookButton',1)): ?>
+										<!-- Facebook Button -->
+										<div class="itemFacebookButton">
+											<div id="fb-root"></div>
+											<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+											<div class="fb-like" data-width="200" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+										</div>
+										<?php endif; ?>
+
+										<?php if($this->item->params->get('itemGooglePlusOneButton',1)): ?>
+										<!-- Google +1 Button -->
+										<div class="itemGooglePlusOneButton">
+											<div class="g-plusone" data-size="medium" width="120"></div>
+											<script>(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='https://apis.google.com/js/platform.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();</script>
+										</div>
+										<?php endif; ?>
 									</div>
 									<?php endif; ?>
 						</div>
@@ -371,7 +353,7 @@ $fblang   = $gkparams->get('fb_lang', 'en_US');
 															<a class="commentRemoveLink" href="<?php echo JRoute::_('index.php?option=com_k2&view=comments&task=remove&commentID='.$comment->id.'&format=raw')?>"><?php echo JText::_('K2_REMOVE')?></a>
 															<?php endif;?>
 															<?php if($comment->published && ($this->params->get('commentsReporting')=='1' || ($this->params->get('commentsReporting')=='2' && !$this->user->guest))): ?>
-															<a class="commentReportLink modal" rel="{handler:'iframe',size:{x:640,y:480}}" href="<?php echo JRoute::_('index.php?option=com_k2&view=comments&task=report&commentID='.$comment->id)?>"><?php echo JText::_('K2_REPORT')?></a>
+															<a data-k2-modal="iframe" href="<?php echo JRoute::_('index.php?option=com_k2&view=comments&task=report&commentID='.$comment->id)?>"><?php echo JText::_('K2_REPORT')?></a>
 															<?php endif; ?>
 															</span>
 															<?php endif; ?>
@@ -391,9 +373,7 @@ $fblang   = $gkparams->get('fb_lang', 'en_US');
 						</div>
 						<?php endif; ?>
 						<?php $user = JFactory::getUser(); if ($params->get('comments') == '2' && $user->guest):?>
-						<div>
-									<?php echo JText::_('K2_LOGIN_TO_POST_COMMENTS');?>
-						</div>
+						<div class="itemCommentsLoginFirst"><?php echo JText::_('K2_LOGIN_TO_POST_COMMENTS'); ?></div>
 						<?php endif; ?>
 			</div>
 			<?php endif; ?>

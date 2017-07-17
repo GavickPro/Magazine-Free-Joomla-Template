@@ -16,7 +16,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 <article class="itemView group<?php echo ucfirst($this->item->itemGroup); ?><?php echo ($this->item->featured) ? ' itemIsFeatured' : ''; ?><?php if($this->item->params->get('pageclass_sfx')) echo ' '.$this->item->params->get('pageclass_sfx'); ?>"> <?php echo $this->item->event->BeforeDisplay; ?> <?php echo $this->item->event->K2BeforeDisplay; ?>
 		<header>
 				<?php if(isset($this->item->editLink)): ?>
-				<a class="catItemEditLink modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->item->editLink; ?>">
+				<a data-k2-modal="edit" href="<?php echo $this->item->editLink; ?>">
 					<?php echo JText::_('K2_EDIT_ITEM'); ?>
 				</a>
 				<?php endif; ?>
@@ -74,7 +74,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 						<?php if($this->item->params->get('catItemDateCreated')): ?>
 						<!-- Date created -->
 						<li class="itemDate">
-						   <time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
+						   <time datetime="<?php echo JHtml::_('date', $this->item->created, DATE_W3C); ?>">
 						   <?php echo JHTML::_('date', $this->item->created , JText::_('K2_DATE_FORMAT_LC2')); ?>
 						</time>
 						</li>
@@ -86,8 +86,8 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 						
 						<?php if($this->item->params->get('latestItemDateCreated')): ?>
 						<li class="itemDate">
-							<time datetime="<?php echo JHtml::_('date', $this->item->created, JText::_(DATE_W3C)); ?>">
-								<?php echo JHTML::_('date', $this->item->created, JText::_('F j, Y')); ?>
+							<time datetime="<?php echo JHtml::_('date', $this->item->created, DATE_W3C); ?>">
+								<?php echo JHTML::_('date', $this->item->created, JText::_('TPL_GK_MAGAZINE_DATE_FORMAT')); ?>
 							</time>
 						</li>
 						<?php endif; ?>
